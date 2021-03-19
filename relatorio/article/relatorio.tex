@@ -20,32 +20,32 @@
 \begin{center}
 
     {\large Universidade Estadual Norte Fluminense}\\[0.2cm] %0,2cm é a distância entre o texto dessa linha e o texto da próxima
-    {\large Banco de Dados - Sahudy Montenegro}\\[0.2cm] % o comando \\ "manda" o texto ir para próxima linha
+    {\large Banco de Dados - Sahudy }\\[0.2cm] % o comando \\ "manda" o texto ir para próxima linha
     {\large Ciência da Computação}\\[5.2cm]
-    
 
-% Título
-{\Huge \bfseries Tema 01 - Pescarte}
 
-\vspace{.5cm}
+    % Título
+    {\Huge \bfseries Tema 18 - PEA Pescarte}
 
-% Subtítulo
-{\LARGE \bfseries Fase Intermediária}
+    \vspace{.5cm}
 
-\vfill
+    % Subtítulo
+    {\LARGE \bfseries Fase Intermediária}
+
+    \vfill
 \end{center}
 \begin{tabbing}
-   
+
 \end{tabbing}
 
-{\noindent \large \bfseries 
-Javier Ernesto 
-\\[.5em] Matheus de Sousa  
+{\noindent \large \bfseries
+Javier Ernesto
+\\[.5em] Matheus de Sousa
 }
 
 
 \begin{flushright}
-Data de entrega: 29 de mar\c{c}o de 2021
+    Data de entrega: 29 de mar\c{c}o de 2021
 \end{flushright}
 
 \clearpage
@@ -65,78 +65,118 @@ Data de entrega: 29 de mar\c{c}o de 2021
 \section{Introdução}
 \label{sec:introducao}
 
-Na introdução é apresentada a organização do documento e uma breve descrição de como o mesmo foi construído.   Esse é um modelo em \LaTeX~ \cite{lamport94} e o estilo das referências bibliográficas segue as normas da ABNT, implementadas pelo pacote abnTeX2. A \autoref{fig:logolatex} apresentada o logo do \LaTeX.
-
+O Projeto PESCARTE tem como sua principal finalidade a criação de uma rede social regional integrada por pescadores artesanais e por seus familiares, buscando, por meio de processos educativos, promover, fortalecer e aperfeiçoar a sua organização comunitária e a sua qualificação profissional, bem como o seu envolvimento na construção participativa e na implementação de projetos de geração de trabalho e renda.
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=.5\linewidth]{figuras/latex-logo}
-    \caption{Logo do \LaTeX}
+    \includegraphics[width=.5\linewidth]{figuras/logoPescarte}
+    \caption{Logo do Pescarte}
     \label{fig:logolatex}
 \end{figure}
 
-O restante do documento está organizado da seguinte forma. Na \autoref{sec:escopo} é apresentado o escopo do projeto. Na \autoref{sec:requisitos} são listados os requisitos do sistema.
-
-\subsection{Escopo do projeto}
-\label{sec:escopo}
-
-Indica o propósito do sistema a ser desenvolvido. Por exemplo, descreve a necessidade que foi apresentada pela área requisitante. \lipsum[2]
-
-
 \section{Descrição do problema}
 
-
-Nessa seção deve ser apresentada a lista de pessoas que participaram do levantamento de requisitos. Pode-se basear nos livro de \cite{bezerra02}.
-
-\lipsum[2]
-
+O PEA PESCARTE é divido por quatro núcleos:
+\begin{itemize}
+    \item Núcleo A
+    \item Núcleo B
+    \item Núcleo C
+    \item Núcleo D
+\end{itemize}
+Esses Núcleos são compostos por 21(Vinte e uma) linhas
+de pesquisa que por sua vez são formadas por
+diversos pesquisadores. Um pesquisador possui três tipos:
+\begin{itemize}
+    \item Pesquisador de Iniciação científica
+    \item Pesquisador de mestrado
+    \item Orientador/Professor
+\end{itemize}
+Cada pesquisador possui uma linha de pesquisa principal,
+contudo pode haver participação em outras linhas de pesquisa.\\
+O trabalho desses pesquisadores na linha de pesquisa resulta
+em "memórias", que podem ser dividídas em vídeos, fotos e artigos.\\
+Além das memórias, todos os pesquisadores participam de vários tipos
+de reuniões agendadas:
+\begin{itemize}
+    \item Reunião exclusiva para líderes das linahs de pesquisa
+    \item Reuniões específicas de cada Núcleo
+    \item Reuniões gerais com todos os Núcleos
+    \item Reuniões excepcionais
+\end{itemize}
+Outrossim os pesquisadores precisam entregar relatórios mensais,
+trimestrais e anuais contemplando as soluções desenvolvidas até tal ponto.
 
 \subsection{Consultas}
-
+O sistema deve possuir esses diferenciais:
 \begin{enumerate}
-    \item O sistema deve permitir que alunos visualizem as notas obtidas
-    \item O sistema deve permitir que os alunos façam matrícula nas disciplinas do semestre letivo
-    \item O sistema deve permitir que os alunos possam obter seus históricos escolares
+    \item Tornar as "memórias" públicas
+    \item Expor dados informativos sobre os Núcleos, linhas de pesquisa e pesquisadores
+    \item Restringir a criação de relatórios e "memórias" aos pesquisadores
+    \item Restringir o agendamento de reuniões aos administradores e pesquisadores
+    \item Permitir o cadastro de pesquisadores e montagem do relatórios apenas aos administradores
 \end{enumerate}
+
+\subsubsection{Média dos artigos publicados de cada pesquisador}
+
+Nessa seção deve ser apresentada a lista de pessoas que participaram do levantamento de requisitos.
+
+
+\subsubsection{“quais são os funcionários que trabalham em cada departamento?”}
+
+Nessa seção deve ser apresentada a lista de pessoas que participaram do levantamento de requisitos.
+
+
+\subsubsection{“listar todos os funcionários que trabalham no departamento de TI”}
+
+
+\subsubsection{“quais são os funcionários que trabalham em cada departamento?”}
+
+
+\subsubsection{“quais são os funcionários que trabalham em cada departamento?”}
+
+
+\subsubsection{“quais são os funcionários que trabalham em cada departamento?”}
+
+
+\subsubsection{“quais são os funcionários que trabalham em cada departamento?”}
+
+
+\subsubsection{“quais são os funcionários que trabalham em cada departamento?”}
+
 
 \subsection{Regras de negócio}
 \label{sec:regrasdenegocio}
 
 \begin{enumerate}
     \item \textbf{Número máximo de matrículas por semestre letivo}
-    \begin{itemize}
-        \item Em um semestre letivo um aluno não poderá se matricular em um número de disciplinas cujo o soma de créditos ultrapasse 18.
-    \end{itemize}
+          \begin{itemize}
+              \item Em um semestre letivo um aluno não poderá se matricular em um número de disciplinas cujo o soma de créditos ultrapasse 18.
+          \end{itemize}
     \item \textbf{Número máximo de alunos por turma}
-    \begin{itemize}
-        \item Uma oferta de disciplina não pode ter mais de 40 vagas para matrícula.
-    \end{itemize}
+          \begin{itemize}
+              \item Uma oferta de disciplina não pode ter mais de 40 vagas para matrícula.
+          \end{itemize}
     \item \textbf{Validação de créditos}
-    \begin{itemize}
-        \item Um aluno só poderá solicitar validação de uma disciplina caso nunca tenha se matriculado na mesma.
-    \end{itemize}
+          \begin{itemize}
+              \item Um aluno só poderá solicitar validação de uma disciplina caso nunca tenha se matriculado na mesma.
+          \end{itemize}
 \end{enumerate}
 
 
 \section{Projeto Conceitual}
 
+\begin{tabular}{|c|l|rc|}
+    \hline
+    jan & fev & mar & abr \\ \hline
+    mai & jun & jul & ago \\ \cline{1-1} \cline{3-4}
+    set & out & nov & dez \\ \hline \hline
+\end{tabular}
 
-\begin{usecase}{Consultar informações}{uc:consultarinfos}{Esse caso de uso descreve as etapas para o PAF obter informações como versão do SB, resumo criptográfico do SB, IdDAF, modelo, fabricante, valor atual do contador, certificado armazenado, estado do DAF, algoritmos criptográficos que o DAF provê suporte e identificadores dos documentos retidos na MT.}
-    \begin{cabecalhoUC}
-    \atorPrimario{PAF}
-    % \atoresSecundarios{ABC, DEF}
-    \precondicoesUC{DAF deve estar no estado \textsc{Pronto}, \textsc{Inativo} ou \textsc{Bloqueado}}
-    \end{cabecalhoUC}
 
-    \begin{fluxoprincipal}
-        \item O PAF solicita ao DAF suas informações 
-        \item O DAF retorna para o PAF o documento estruturado com suas informações
-    \end{fluxoprincipal}  
-
-    \begin{fluxoexcecao}{Pedido mal formado}
-        \item O DAF retorna para o PAF uma mensagem de erro informando que o pedido foi mal formado)
-    \end{fluxoexcecao}   
-\end{usecase}
-
+\begin{tabular}{|l|ll|} \hline
+    Pesquisador & \multicolumn{2}{|c|}{terça}      \\ \hline
+    Data de nascimento                             \\
+                & 10                          & 25 \\ \hline
+\end{tabular}
 
 % ----------------------------------------------------------
 % Referências bibliográficas

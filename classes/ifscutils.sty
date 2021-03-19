@@ -176,8 +176,7 @@
 \RequirePackage{ccicons}
 \newcommand{\licenciamentoLivre}{%
 \begin{center}%
-  \ccby~Este documento está licenciado sob \href{https://creativecommons.org/licenses/by/4.0/deed.pt_BR}{Creative Commons ``Atribuição 4.0 Internacional''.}%  
-\end{center}%
+ \end{center}%
 }
 
 % Ambiente para manter histórico das revisões
@@ -601,7 +600,7 @@ overlay={\node[anchor=north west,outer sep=1pt] at (frame.north west) {\textcolo
 
 \lstdefinelanguage{docker}{
   keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, ARG, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
-  keywordstyle=\color{blue}\bfseries,
+  keywordstyle=\color{black}\bfseries,
   identifierstyle=\color{black},
   sensitive=false,
   comment=[l]{\#},
@@ -612,7 +611,7 @@ overlay={\node[anchor=north west,outer sep=1pt] at (frame.north west) {\textcolo
 
 \lstdefinelanguage{docker-compose}{
   keywords={image, environment, ports, container_name, ports, volumes, links},
-  keywordstyle=\color{blue}\bfseries,
+  keywordstyle=\color{black}\bfseries,
   identifierstyle=\color{black},
   sensitive=false,
   comment=[l]{\#},
@@ -622,7 +621,7 @@ overlay={\node[anchor=north west,outer sep=1pt] at (frame.north west) {\textcolo
 }
 \lstdefinelanguage{docker-compose-2}{
   keywords={version, volumes, services},
-  keywordstyle=\color{blue}\bfseries,
+  keywordstyle=\color{black}\bfseries,
   keywords=[2]{image, environment, ports, container_name, ports, links, build},
   keywordstyle=[2]\color{olive}\bfseries,
   identifierstyle=\color{black},
