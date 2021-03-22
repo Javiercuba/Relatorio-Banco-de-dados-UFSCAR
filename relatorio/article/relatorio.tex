@@ -1,7 +1,4 @@
-% ------------------------------------------------------------%
-% 2020-12-05
-% 2015-2020 - Emerson Ribeiro de Mello - mello@ifsc.edu.br
-% ------------------------------------------------------------%
+
 \documentclass[11pt]{../../classes/ifscarticle}
 \usepackage{../../classes/ifscutils}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
@@ -48,7 +45,7 @@ Javier Ernesto
 
 \clearpage
 \pagestyle{firstpage}
-% ------------------------------------------------------------%
+
 
 % ------------------------------------------------------------%
 % Adicionando sumário
@@ -159,56 +156,51 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
           \end{itemize}
 \end{enumerate}
 
-
+\clearpage
 \section{Projeto Conceitual}
 
-\begin{tabular}{|c|l|rc|}
-    \hline
-    jan & fev & mar & abr \\ \hline
-    mai & jun & jul & ago \\ \cline{1-1} \cline{3-4}
-    set & out & nov & dez \\ \hline \hline
-\end{tabular}
 
 
-\begin{tabular}{|c|l|rc|} \hline
-    Tipo-Entidade & \multicolumn{3}{|c|} {Atributos} { Atributos}{Atributos}    \\ \hline \hline
+
+\begin{table}[h]
+   \centering
     
-    Núcleos & \multicolumn{2}{|c|}{terça}\\ \hline \hline
-
-    Pesquisador & \multicolumn{1}{|c|}{terça}\\ \hline
-     & fev & mar & abr \\ \hline
-     & jun & jul & ago \\ \hline
-     & out & nov & dez \\ \hline \hline
-
-
+    \vspace{0.5cm}
+    \begin{tabular}{l|c|c|c|}
     
+    Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
+    \hline                               % para uma linha horizontal
+     Pesquisador &Data de nascimento   & . & Obrigatório \\
+     & CPF                & Chave candidata & Obrigatório\\
+     & E-mail             & . & Obrigatório\\
+     & E-mail alternativo & . & Obrigatório\\
+     & Nome completo      & . & Opcional\\
+     & Tipo de bolsa      & . & Obrigatório\\
+     & LP principal       & . & Obrigatório\\
+     & Cidade             & . & Obrigatório\\
+     & Universidade       & . & Obrigatório\\ 
+     & Orientandos        & . & Obrigatório\\ 
+     & Foto               & . & Obrigatório\\ 
+     & Minibiografia      & Multivalorado & Obrigatório\\  
+     & Relatórios anuais  & Multivalorado & Obrigatório  \\ \hline 
+        
+    Linhas de Pesquisa & Número da LP   & Identificador & \\
+    & Descrição breve & . &  \\ 
+    & Descrição longa & . &  \\
+    & Núcleos da LP & . &     \\ \hline
 
-    Linhas de Pesquisa & \multicolumn{2}{|c|}{terça}      \\ \hline
-    
-\end{tabular}
+    Núcleos & Nome do Núcleo   & Identificador & \\
+    & Descrição do Núcleo   & .  & \\ \hline 
 
-\begin{tabular}{|c|l|rc|} \hline
-    Núcleos & \multicolumn{2}{|c|}{terça}\\ \hline   
-\end{tabular}
-
-
-\begin{tabular}{|c|l|rc|} \hline
-    Pesquisador & \multicolumn{1}{|c|}{terça}\\ \hline
-    & fev & mar & abr \\ \hline
-    & jun & jul & ago \\ \hline
-    & out & nov & dez \\ \hline 
-\end{tabular}
-
-
-\begin{tabular}{|c|l|rc|} \hline
-    Núcleos & \multicolumn{2}{|c|}{terça}\\ \hline   
-\end{tabular}
-
+    \end{tabular}
+    \caption{Tipos de atributos por tipo-entidade do DER.}
+    \end{table}
 
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
+
 \bibliography{referencias}
 
 
