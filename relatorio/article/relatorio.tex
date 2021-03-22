@@ -176,30 +176,29 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
                   & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido \\
                   & Senha               & Monovalorado      & Obrigatório, virtual        \\
                   & Confirmação Senha   & Monovalorado      & Obrigatório, virtual        \\
+                  & Nome completo       & Chave candidata   & Obrigatório                 \\
                   & Hash Senha          & Monovalorado      & Obrigatório                 \\
                   & Papéis              & Multivalorado     & Obrigatório                 \\
     \hline
     Administradores \\
                   & Código Administrador & Identificador & Gerado Automaticamente \\
                   & Funções              & Multivalorado & Obrigatório            \\
-                  & Código Usuário      & Chave estrangeira & Obrigatório         \\
+                  & Código Usuário       & Chave estrangeira & Obrigatório        \\
     \hline
     Pesquisador \\
                   & Código Pesquisador  & Identificador     & Gerado Automaticamente                               \\
                   & Data de nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
                   & CPF                 & Chave candidata   & Obrigatório, formato válido, validação por algoritmo \\
-                  & Nome completo       & Chave candidata   & Obrigatório                                          \\
                   & Link Lattes         & Chave candidata   & Obrigatório                                          \\
                   & Tipo de bolsa       & Monovalorado      & Obrigatório                                          \\
-                  & LP principal        & Monovalorado      & Obrigatório                                          \\
                   & LPs Secundárias     & Monovalorado      & Obrigatório                                          \\
                   & Cidade              & Monovalorado      & Obrigatório                                          \\
                   & Universidade        & Monovalorado      & Obrigatório                                          \\
                   & Orientandos         & Monovalorado      & Obrigatório                                          \\
                   & Foto                & Monovalorado      & Obrigatório                                          \\
-                  & Minibiografia       & Monovalorado      & Obrigatório                                          \\
+                  & Minibiografia       & Monovalorado      & Obrigatório, <= 280 caracteres                       \\
                   & Relatórios          & Chave composta    & Obrigatório                                          \\
-                  & Código LP           & Chave estrangeira & Obrigatório                                          \\
+                  & Código LP principal & Chave estrangeira & Obrigatório                                          \\
                   & Código Usuário      & Chave estrangeira & Obrigatório                                          \\
     \hline
     Linhas de Pesquisa \\
