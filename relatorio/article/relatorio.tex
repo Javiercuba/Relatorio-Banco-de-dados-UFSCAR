@@ -171,42 +171,44 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
     Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
     \hline                               % para uma linha horizontal
     Pesquisador \\
-                  & Código Pesquisador  & Identificador   & Gerado Automaticamente                               \\
-                  & Data de nascimento  & Chave candidata & Obrigatório, formato válido                          \\
-                  & CPF                 & Chave candidata & Obrigatório, formato válido, validação por algoritmo \\
-                  & E-mail              & Chave candidata & Obrigatório, formato válido                          \\
-                  & E-mail alternativo  & Chave candidata & Obrigatório, formato válido                          \\
-                  & Senha               & Monovalorado    & Obrigatório, virtual                                 \\
-                  & Confirmação Senha   & Monovalorado    & Obrigatório, virtual                                 \\
-                  & Hash Senha          & Monovalorado    & Obrigatório                                          \\
-                  & Nome completo       & Chave candidata & Obrigatório                                          \\
-                  & Link Lattes         & Chave candidata & Obrigatório                                          \\
-                  & Tipo de bolsa       & Monovalorado    & Obrigatório                                          \\
-                  & LP principal        & Monovalorado    & Obrigatório                                          \\
-                  & LPs Secundárias     & Monovalorado    & Obrigatório                                          \\
-                  & Cidade              & Monovalorado    & Obrigatório                                          \\
-                  & Universidade        & Monovalorado    & Obrigatório                                          \\
-                  & Orientandos         & Monovalorado    & Obrigatório                                          \\
-                  & Foto                & Monovalorado    & Obrigatório                                          \\
-                  & Minibiografia       & Monovalorado    & Obrigatório                                          \\
-                  & Relatórios          & Chave composta  & Obrigatório                                          \\
+                  & Código Pesquisador  & Identificador     & Gerado Automaticamente                               \\
+                  & Data de nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
+                  & CPF                 & Chave candidata   & Obrigatório, formato válido, validação por algoritmo \\
+                  & E-mail              & Chave candidata   & Obrigatório, formato válido                          \\
+                  & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido                          \\
+                  & Senha               & Monovalorado      & Obrigatório, virtual                                 \\
+                  & Confirmação Senha   & Monovalorado      & Obrigatório, virtual                                 \\
+                  & Hash Senha          & Monovalorado      & Obrigatório                                          \\
+                  & Nome completo       & Chave candidata   & Obrigatório                                          \\
+                  & Link Lattes         & Chave candidata   & Obrigatório                                          \\
+                  & Tipo de bolsa       & Monovalorado      & Obrigatório                                          \\
+                  & LP principal        & Monovalorado      & Obrigatório                                          \\
+                  & LPs Secundárias     & Monovalorado      & Obrigatório                                          \\
+                  & Cidade              & Monovalorado      & Obrigatório                                          \\
+                  & Universidade        & Monovalorado      & Obrigatório                                          \\
+                  & Orientandos         & Monovalorado      & Obrigatório                                          \\
+                  & Foto                & Monovalorado      & Obrigatório                                          \\
+                  & Minibiografia       & Monovalorado      & Obrigatório                                          \\
+                  & Relatórios          & Chave composta    & Obrigatório                                          \\
+                  & Código LP           & Chave estrangeira & Obrigatório                                          \\
     \hline
     Linhas de Pesquisa \\
-                  & Código LP       & Identificador & Gerado Automaticamente         \\
-                  & Número da LP    & Monovalorado  & Obrigatório                    \\
-                  & Descrição breve & Monovalorado  & Opcional, <= 280 caracteres    \\
-                  & Descrição longa & Monovalorado  & Obrigatório, <= 650 caracteres \\
-                  & Núcleos da LP   & Monovalorado  & Obrigatório                    \\
+                  & Código LP       & Identificador     & Gerado Automaticamente         \\
+                  & Número da LP    & Monovalorado      & Obrigatório                    \\
+                  & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
+                  & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
+                  & Núcleos da LP   & Monovalorado      & Obrigatório                    \\
+                  & Código Núcleo   & Chave estrangeira & Obrigatório                    \\
     \hline
     Núcleos \\
-                  & Código Núcleo       & Identificador   & Gerado Automaticamente        \\
-                  & Nome do Núcleo      & Chave candidata & Obrigatório                   \\
-                  & Descrição do Núcleo & Monovalorado    & Obrigatório, < 400 caracteres \\
+                  & Código Núcleo       & Identificador     & Gerado Automaticamente         \\
+                  & Nome do Núcleo      & Chave candidata   & Obrigatório                    \\
+                  & Descrição do Núcleo & Monovalorado      & Obrigatório, <= 400 caracteres \\
     \hline
     Memórias \\
                   & Código Memórias     & Identificador     & Gerado Automaticamente \\
                   & Código LP           & Chave estrangeira & Obrigatório            \\
-                  & Chave Pesquisador   & Chave estrangeira & Obrigatório            \\
+                  & Código Pesquisador  & Chave estrangeira & Obrigatório            \\
                   & Links vídeos        & Monovalorado      & Obrigatório            \\
                   & Links artigos       & Monovalorado      & Obrigatório            \\
                   & Links fotos         & Monovalorado      & Obrigatório            \\
