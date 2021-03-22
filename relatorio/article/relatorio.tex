@@ -170,15 +170,19 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
   \begin{tabular}{l|c|c|c|}
     Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
     \hline                               % para uma linha horizontal
+    Usuários \\
+                  & Código Usuário      & Identificador     & Gerado Automaticamente      \\
+                  & E-mail              & Chave candidata   & Obrigatório, formato válido \\
+                  & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido \\
+                  & Senha               & Monovalorado      & Obrigatório, virtual        \\
+                  & Confirmação Senha   & Monovalorado      & Obrigatório, virtual        \\
+                  & Hash Senha          & Monovalorado      & Obrigatório                 \\
+                  & Papéis              & Multivalorado     & Obrigatório                 \\
+    \hline
     Pesquisador \\
                   & Código Pesquisador  & Identificador     & Gerado Automaticamente                               \\
                   & Data de nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
                   & CPF                 & Chave candidata   & Obrigatório, formato válido, validação por algoritmo \\
-                  & E-mail              & Chave candidata   & Obrigatório, formato válido                          \\
-                  & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido                          \\
-                  & Senha               & Monovalorado      & Obrigatório, virtual                                 \\
-                  & Confirmação Senha   & Monovalorado      & Obrigatório, virtual                                 \\
-                  & Hash Senha          & Monovalorado      & Obrigatório                                          \\
                   & Nome completo       & Chave candidata   & Obrigatório                                          \\
                   & Link Lattes         & Chave candidata   & Obrigatório                                          \\
                   & Tipo de bolsa       & Monovalorado      & Obrigatório                                          \\
@@ -191,6 +195,7 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
                   & Minibiografia       & Monovalorado      & Obrigatório                                          \\
                   & Relatórios          & Chave composta    & Obrigatório                                          \\
                   & Código LP           & Chave estrangeira & Obrigatório                                          \\
+                  & Código Usuário      & Chave estrangeira & Obrigatório                                          \\
     \hline
     Linhas de Pesquisa \\
                   & Código LP       & Identificador     & Gerado Automaticamente         \\
