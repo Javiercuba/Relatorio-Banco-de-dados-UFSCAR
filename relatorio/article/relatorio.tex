@@ -1,14 +1,9 @@
-% ------------------------------------------------------------%
-% 2020-12-05
-% 2015-2020 - Emerson Ribeiro de Mello - mello@ifsc.edu.br
-% ------------------------------------------------------------%
+
 \documentclass[11pt]{../../classes/ifscarticle}
 \usepackage{../../classes/ifscutils}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
 
 \renewcommand*{\theusecase}{UC-\thesection.\arabic{usecase}}
-
-
 \usepackage{lipsum}
 
 \AtBeginDocument{\thispagestyle{empty}}
@@ -39,8 +34,8 @@
 \end{tabbing}
 
 {\noindent \large \bfseries
-Javier Ernesto
-\\[.5em] Matheus de Sousa
+Javier Ernesto Lopez Del Real
+\\[.5em] Matheus de Souza Pessanha
 }
 
 
@@ -50,7 +45,7 @@ Javier Ernesto
 
 \clearpage
 \pagestyle{firstpage}
-% ------------------------------------------------------------%
+
 
 % ------------------------------------------------------------%
 % Adicionando sumário
@@ -65,7 +60,7 @@ Javier Ernesto
 \section{Introdução}
 \label{sec:introducao}
 
-O Projeto PESCARTE tem como sua principal finalidade a criação de uma rede social regional integrada por pescadores artesanais e por seus familiares, buscando, por meio de processos educativos, promover, fortalecer e aperfeiçoar a sua organização comunitária e a sua qualificação profissional, bem como o seu envolvimento na construção participativa e na implementação de projetos de geração de trabalho e renda.
+O Projeto de Educação Ambiental(PEA) PESCARTE tem como sua principal finalidade a criação de uma rede social regional integrada por pescadores artesanais e por seus familiares, buscando, por meio de processos educativos, promover, fortalecer e aperfeiçoar a sua organização comunitária e a sua qualificação profissional, bem como o seu envolvimento na construção participativa e na implementação de projetos de geração de trabalho e renda.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.5\linewidth]{figuras/logoPescarte}
@@ -93,11 +88,11 @@ diversos pesquisadores. Um pesquisador possui três tipos:
 Cada pesquisador possui uma linha de pesquisa principal,
 contudo pode haver participação em outras linhas de pesquisa.\\
 O trabalho desses pesquisadores na linha de pesquisa resulta
-em "memórias", que podem ser dividídas em vídeos, fotos e artigos.\\
+em "memórias", que podem ser divididas em vídeos, fotos e artigos.\\
 Além das memórias, todos os pesquisadores participam de vários tipos
 de reuniões agendadas:
 \begin{itemize}
-    \item Reunião exclusiva para líderes das linahs de pesquisa
+    \item Reunião exclusiva para líderes das linhas de pesquisa
     \item Reuniões específicas de cada Núcleo
     \item Reuniões gerais com todos os Núcleos
     \item Reuniões excepcionais
@@ -108,7 +103,7 @@ trimestrais e anuais contemplando as soluções desenvolvidas até tal ponto.
 \subsection{Consultas}
 O sistema deve possuir esses diferenciais:
 \begin{enumerate}
-    \item Tornar as "memórias" públicas
+    \item Tornar as "memórias"\ públicas
     \item Expor dados informativos sobre os Núcleos, linhas de pesquisa e pesquisadores
     \item Restringir a criação de relatórios e "memórias" aos pesquisadores
     \item Restringir o agendamento de reuniões aos administradores e pesquisadores
@@ -160,27 +155,101 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
               \item Um aluno só poderá solicitar validação de uma disciplina caso nunca tenha se matriculado na mesma.
           \end{itemize}
 \end{enumerate}
-
+\clearpage
 
 \section{Projeto Conceitual}
 
-\begin{tabular}{|c|l|rc|}
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+      \hline
+      Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
+     
+                                             
+      \hline
+                    & Código LP       & Identificador     & Gerado Automaticamente         \\
+                    & Número da LP    & Monovalorasdo      & Obrigatório                    \\
+     Linhas        & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
+     de Pesquisa    & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
+                    & Núcleos da LP   & Monovalorado      & Obrigatório                    \\
+                    & Código Núcleo   & Chave estrangeira & Obrigatório                    \\
+      \hline
+                    & Código Núcleo       & Identificador     & Gerado Automaticamente         \\
+      Núcleos       & Nome do Núcleo      & Chave candidata   & Obrigatório                    \\
+                    & Descrição Núcleo & Monovalorado      & Obrigatório, <= 400 caracteres \\
+      \hline
+                    & Código Memórias     & Identificador     & Gerado Automaticamente \\
+                    & Código LP           & Chave estrangeira & Obrigatório            \\
+      Memórias      & Código \linebreak Pesquisador  & Chave estrangeira & Obrigatório            \\
+                    & Links vídeos        & Monovalorado      & Obrigatório            \\
+                    & Links artigos       & Monovalorado      & Obrigatório            \\
+                    & Links fotos         & Monovalorado      & Obrigatório            \\
+      \hline 
+                    & Código Reunião      & Identificador     & Gerado Automaticamente  \\
+                    & Código Usuário      & Chave estrangeira & Obrigatório             \\
+     Reuniões       & Cancelada?          & Monovalorado      & Opcional, padrão: false \\
+                    & Tipo Reunião        & Monovalorado      & Obrigatório             \\
+                    & Data agendada       & Monovalorado      & Obrigatório             \\
+      \hline
+    \end{tabular}
+    \caption{Tipos de atributos por tipo-entidade do DER.}
+  \end{table}
+  \clearpage
+\begin{table}[h]
+  \centering
+  \vspace{0.5cm}
+  \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+   
     \hline
-    jan & fev & mar & abr \\ \hline
-    mai & jun & jul & ago \\ \cline{1-1} \cline{3-4}
-    set & out & nov & dez \\ \hline \hline
-\end{tabular}
+    Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
+   
+    \hline 
+                                % para uma linha horizontal
+                  & Código Usuário      & Identificador     & Gerado Automaticamente      \\
+                  & E-mail              & Chave candidata   & Obrigatório, formato válido \\
+                  & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido \\
+     Usuários     & Senha               & Monovalorado      & Obrigatório, virtual        \\
+                  & Confirmação\linebreak Senha   & Monovalorado      & Obrigatório, virtual        \\
+                  & Nome completo       & Chave candidata   & Obrigatório                 \\
+                  & Hash Senha          & Monovalorado      & Obrigatório                 \\
+                  & Papéis              & Multivalorado     & Obrigatório                 \\
+    \hline
+                  & Código\linebreak Administrador & Identificador & Gerado Automaticamente \\ 
+    Admins        & Funções              & Multivalorado & Obrigatório            \\
+                  & Código Usuário       & Chave estrangeira & Obrigatório        \\
+    \hline
+                  & Código\linebreak Pesquisador  & Identificador     & Gerado Automaticamente                               \\
+                  & Data\linebreak nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
+                  & CPF                 & Chave candidata   & Obrigatório, \linebreak validação por algoritmo \\
+                  & Link Lattes         & Chave candidata   & Obrigatório                                          \\
+                  & Tipo de bolsa       & Monovalorado      & Obrigatório                                          \\
+                  & LPs Secundárias     & Monovalorado      & Obrigatório                                          \\
+                  & Cidade              & Monovalorado      & Obrigatório                                          \\
+    Pesquisador   & Universidade        & Monovalorado      & Obrigatório                                          \\
+                  & Orientandos         & Monovalorado      & Obrigatório                                          \\
+                  & Foto                & Monovalorado      & Obrigatório                                          \\
+                  & Minibiografia       & Monovalorado      & Obrigatório, <= 280 caracteres                       \\
+                  & Relatórios          & Chave composta    & Obrigatório                                          \\
+                  & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                          \\
+                  & Código Usuário      & Chave estrangeira & Obrigatório                                          \\
+            
+    \hline
+  \end{tabular}
+  \caption{Tipos de atributos por tipo-entidade do DER.}
+\end{table}
 
 
-\begin{tabular}{|l|ll|} \hline
-    Pesquisador & \multicolumn{2}{|c|}{terça}      \\ \hline
-    Data de nascimento                             \\
-                & 10                          & 25 \\ \hline
-\end{tabular}
+
+
+
+\clearpage
+
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
+
 \bibliography{referencias}
 
 

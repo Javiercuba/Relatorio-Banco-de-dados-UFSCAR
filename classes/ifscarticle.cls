@@ -34,7 +34,7 @@
   \renewcommand{\footrulewidth}{0pt}
   % \fancyhead[C]{\pgfuseimage{cabecalho}}
   \fancyfoot[L]{\begin{tiny}UENF \textsc{Universidade Estadual do Norte Fluminense }\end{tiny} }
-  \fancyfoot[R]{\begin{tiny}Página \thepage\end{tiny}}
+  \fancyfoot[R]{\begin{tiny} \thepage\end{tiny}}
 }
 
 \fancypagestyle{followingpage}{%
