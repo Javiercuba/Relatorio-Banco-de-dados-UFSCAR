@@ -155,79 +155,95 @@ Nessa seção deve ser apresentada a lista de pessoas que participaram do levant
               \item Um aluno só poderá solicitar validação de uma disciplina caso nunca tenha se matriculado na mesma.
           \end{itemize}
 \end{enumerate}
-
+\clearpage
 
 \section{Projeto Conceitual}
 
 \begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+      \hline
+      Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
+     
+                                             
+      \hline
+                    & Código LP       & Identificador     & Gerado Automaticamente         \\
+                    & Número da LP    & Monovalorasdo      & Obrigatório                    \\
+     Linhas        & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
+     de Pesquisa    & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
+                    & Núcleos da LP   & Monovalorado      & Obrigatório                    \\
+                    & Código Núcleo   & Chave estrangeira & Obrigatório                    \\
+      \hline
+                    & Código Núcleo       & Identificador     & Gerado Automaticamente         \\
+      Núcleos       & Nome do Núcleo      & Chave candidata   & Obrigatório                    \\
+                    & Descrição Núcleo & Monovalorado      & Obrigatório, <= 400 caracteres \\
+      \hline
+                    & Código Memórias     & Identificador     & Gerado Automaticamente \\
+                    & Código LP           & Chave estrangeira & Obrigatório            \\
+      Memórias      & Código \linebreak Pesquisador  & Chave estrangeira & Obrigatório            \\
+                    & Links vídeos        & Monovalorado      & Obrigatório            \\
+                    & Links artigos       & Monovalorado      & Obrigatório            \\
+                    & Links fotos         & Monovalorado      & Obrigatório            \\
+      \hline 
+                    & Código Reunião      & Identificador     & Gerado Automaticamente  \\
+                    & Código Usuário      & Chave estrangeira & Obrigatório             \\
+     Reuniões       & Cancelada?          & Monovalorado      & Opcional, padrão: false \\
+                    & Tipo Reunião        & Monovalorado      & Obrigatório             \\
+                    & Data agendada       & Monovalorado      & Obrigatório             \\
+      \hline
+    \end{tabular}
+    \caption{Tipos de atributos por tipo-entidade do DER.}
+  \end{table}
+  \clearpage
+\begin{table}[h]
   \centering
   \vspace{0.5cm}
-  \begin{tabular}{l|l|l|l|}
+  \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+   
+    \hline
     Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
    
-    \hline                               % para uma linha horizontal
-    Usuários \\ 
+    \hline 
+                                % para uma linha horizontal
                   & Código Usuário      & Identificador     & Gerado Automaticamente      \\
                   & E-mail              & Chave candidata   & Obrigatório, formato válido \\
                   & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido \\
-                  & Senha               & Monovalorado      & Obrigatório, virtual        \\
-                  & Confirmação Senha   & Monovalorado      & Obrigatório, virtual        \\
+     Usuários     & Senha               & Monovalorado      & Obrigatório, virtual        \\
+                  & Confirmação\linebreak Senha   & Monovalorado      & Obrigatório, virtual        \\
                   & Nome completo       & Chave candidata   & Obrigatório                 \\
                   & Hash Senha          & Monovalorado      & Obrigatório                 \\
                   & Papéis              & Multivalorado     & Obrigatório                 \\
     \hline
-    Administradores \\
-                  & Código Administrador & Identificador & Gerado Automaticamente \\
-                  & Funções              & Multivalorado & Obrigatório            \\
+                  & Código\linebreak Administrador & Identificador & Gerado Automaticamente \\ 
+    Admins        & Funções              & Multivalorado & Obrigatório            \\
                   & Código Usuário       & Chave estrangeira & Obrigatório        \\
     \hline
-    Pesquisador \\
-                  & Código Pesquisador  & Identificador     & Gerado Automaticamente                               \\
-                  & Data de nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
-                  & CPF                 & Chave candidata   & Obrigatório, formato válido, validação por algoritmo \\
+                  & Código\linebreak Pesquisador  & Identificador     & Gerado Automaticamente                               \\
+                  & Data\linebreak nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
+                  & CPF                 & Chave candidata   & Obrigatório, \linebreak validação por algoritmo \\
                   & Link Lattes         & Chave candidata   & Obrigatório                                          \\
                   & Tipo de bolsa       & Monovalorado      & Obrigatório                                          \\
                   & LPs Secundárias     & Monovalorado      & Obrigatório                                          \\
                   & Cidade              & Monovalorado      & Obrigatório                                          \\
-                  & Universidade        & Monovalorado      & Obrigatório                                          \\
+    Pesquisador   & Universidade        & Monovalorado      & Obrigatório                                          \\
                   & Orientandos         & Monovalorado      & Obrigatório                                          \\
                   & Foto                & Monovalorado      & Obrigatório                                          \\
                   & Minibiografia       & Monovalorado      & Obrigatório, <= 280 caracteres                       \\
                   & Relatórios          & Chave composta    & Obrigatório                                          \\
-                  & Código LP principal & Chave estrangeira & Obrigatório                                          \\
+                  & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                          \\
                   & Código Usuário      & Chave estrangeira & Obrigatório                                          \\
-    \hline
-    Linhas de Pesquisa \\
-                  & Código LP       & Identificador     & Gerado Automaticamente         \\
-                  & Número da LP    & Monovalorado      & Obrigatório                    \\
-                  & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
-                  & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
-                  & Núcleos da LP   & Monovalorado      & Obrigatório                    \\
-                  & Código Núcleo   & Chave estrangeira & Obrigatório                    \\
-    \hline
-    Núcleos \\
-                  & Código Núcleo       & Identificador     & Gerado Automaticamente         \\
-                  & Nome do Núcleo      & Chave candidata   & Obrigatório                    \\
-                  & Descrição do Núcleo & Monovalorado      & Obrigatório, <= 400 caracteres \\
-    \hline
-    Memórias \\
-                  & Código Memórias     & Identificador     & Gerado Automaticamente \\
-                  & Código LP           & Chave estrangeira & Obrigatório            \\
-                  & Código Pesquisador  & Chave estrangeira & Obrigatório            \\
-                  & Links vídeos        & Monovalorado      & Obrigatório            \\
-                  & Links artigos       & Monovalorado      & Obrigatório            \\
-                  & Links fotos         & Monovalorado      & Obrigatório            \\
-    \hline
-    Reuniões \\
-                  & Código Reunião      & Identificador     & Gerado Automaticamente  \\
-                  & Código Usuário      & Chave estrangeira & Obrigatório             \\
-                  & Cancelada?          & Monovalorado      & Opcional, padrão: false \\
-                  & Tipo Reunião        & Monovalorado      & Obrigatório             \\
-                  & Data agendada       & Monovalorado      & Obrigatório             \\
+            
     \hline
   \end{tabular}
   \caption{Tipos de atributos por tipo-entidade do DER.}
 \end{table}
+
+
+
+
+
+\clearpage
 
 
 % ----------------------------------------------------------
