@@ -2,7 +2,7 @@
 \documentclass[11pt]{../../classes/ifscarticle}
 \usepackage{../../classes/ifscutils}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
-
+\usepackage[nottoc]{tocbibind}
 \renewcommand*{\theusecase}{UC-\thesection.\arabic{usecase}}
 \usepackage{lipsum}
 
@@ -98,45 +98,32 @@ de reuniões agendadas:
     \item Reuniões excepcionais
 \end{itemize}
 Outrossim os pesquisadores precisam entregar relatórios mensais,
-trimestrais e anuais contemplando as soluções desenvolvidas até tal ponto.
-
-\subsection{Consultas}
+trimestrais e anuais contemplando as soluções desenvolvidas até tal ponto.\\
+\clearpage
 O sistema deve possuir esses diferenciais:
+
 \begin{enumerate}
     \item Tornar as "memórias"\ públicas
     \item Expor dados informativos sobre os Núcleos, linhas de pesquisa e pesquisadores
-    \item Restringir a criação de relatórios e "memórias" aos pesquisadores
-    \item Restringir o agendamento de reuniões aos administradores e pesquisadores
+    \item Consulta confirmação de email de usuário
+    \item Verificar o papel do usuário
     \item Permitir o cadastro de pesquisadores e montagem do relatórios apenas aos administradores
 \end{enumerate}
+
+\subsection{Consultas}
+
 
 O sistema deve realizar esses consultas:
 \begin{itemize}
+    
     \item Média dos artigos publicados de cada pesquisador
-    \item Numero total de Pesquisadores por nucleo
-    \item Restringir a criação de relatórios e "memórias" aos pesquisadores
-    \item Restringir o agendamento de reuniões aos administradores e pesquisadores
-    \item Permitir o cadastro de pesquisadores e montagem do relatórios apenas aos administradores
+    \item Total de linhas de pesquisa por pesquisador
+    \item Número total de Pesquisadores por núcleo
+    \item Verificar os papéis de um usuário 
+    \item Verificar os participantes de uma reunião
+    \item Quantos usuários não confirmaram o email
 \end{itemize}
 
-
-\subsection{Restrição de integridade}
-\label{sec:regrasdenegocio}
-
-\begin{enumerate}
-    \item \textbf{Número máximo de matrículas por semestre letivo}
-          \begin{itemize}
-              \item Em um semestre letivo um aluno não poderá se matricular em um número de disciplinas cujo o soma de créditos ultrapasse 18.
-          \end{itemize}
-    \item \textbf{Número máximo de alunos por turma}
-          \begin{itemize}
-              \item Uma oferta de disciplina não pode ter mais de 40 vagas para matrícula.
-          \end{itemize}
-    \item \textbf{Validação de créditos}
-          \begin{itemize}
-              \item Um aluno só poderá solicitar validação de uma disciplina caso nunca tenha se matriculado na mesma.
-          \end{itemize}
-\end{enumerate}
 \clearpage
 
 \section{Projeto Conceitual}
@@ -237,9 +224,13 @@ O sistema deve realizar esses consultas:
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
+\bibliography{referencias}        %use a bibtex bibliography file refs.bib
 
-\bibliography{referencias}
 
+\begin{itemize}
+    \item \href{https://github.com/cciuenf/pea_pescarte/blob/main/doc_projeto/documentos/fluxograma_modulos.pdf}{Fluxograma Módulos PEA Pescarte }
+   
+\end{itemize}
 
 \end{document}
 
