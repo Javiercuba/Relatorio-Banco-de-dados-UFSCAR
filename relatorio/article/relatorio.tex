@@ -15,12 +15,12 @@
 \begin{center}
 
     {\large Universidade Estadual Norte Fluminense}\\[0.2cm] %0,2cm é a distância entre o texto dessa linha e o texto da próxima
-    {\large Banco de Dados - Sahudy }\\[0.2cm] % o comando \\ "manda" o texto ir para próxima linha
+    {\large Banco de Dados - Prof(a). Sahudy Montenegro }\\[0.2cm] % o comando \\ "manda" o texto ir para próxima linha
     {\large Ciência da Computação}\\[5.2cm]
 
 
     % Título
-    {\Huge \bfseries Tema 18 - PEA Pescarte}
+    {\Huge \bfseries Grupo 18 - PEA Pescarte}
 
     \vspace{.5cm}
 
@@ -81,12 +81,12 @@ Esses Núcleos são compostos por 21(Vinte e uma) linhas
 de pesquisa que por sua vez são formadas por
 diversos pesquisadores. Um pesquisador possui três tipos:
 \begin{itemize}
-    \item Pesquisador de Iniciação científica
+    \item Pesquisador de Iniciação Científica
     \item Pesquisador de mestrado
-    \item Orientador/Professor
+    \item Coordenador
 \end{itemize}
 Cada pesquisador possui uma linha de pesquisa principal,
-contudo pode haver participação em outras linhas de pesquisa.\\
+contudo pode haver participação em outras linhas de pesquisa.
 O trabalho desses pesquisadores na linha de pesquisa resulta
 em "memórias", que podem ser divididas em vídeos, fotos e artigos.\\
 Além das memórias, todos os pesquisadores participam de vários tipos
@@ -97,7 +97,7 @@ de reuniões agendadas:
     \item Reuniões gerais com todos os Núcleos
     \item Reuniões excepcionais
 \end{itemize}
-Outrossim os pesquisadores precisam entregar relatórios mensais,
+Outrossim, os pesquisadores precisam entregar relatórios mensais,
 trimestrais e anuais contemplando as soluções desenvolvidas até tal ponto.\\
 \clearpage
 O sistema deve possuir esses diferenciais:
@@ -114,17 +114,28 @@ O sistema deve possuir esses diferenciais:
 
 
 O sistema deve realizar esses consultas:
-\begin{itemize}
+\begin{enumerate}
     
-    \item Média dos artigos publicados de cada pesquisador
+    \item Média das memórias artigos publicados de cada pesquisador
     \item Total de linhas de pesquisa por pesquisador
     \item Número total de Pesquisadores por núcleo
     \item Verificar os papéis de um usuário 
     \item Verificar os participantes de uma reunião
     \item Quantos usuários não confirmaram o email
-\end{itemize}
+\end{enumerate}
+
 
 \clearpage
+\subsection{Diagrama}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=17cm]{figuras/Diagrama.png}
+    \caption{Diagrama}
+    \label{fig:logolatex}
+\end{figure}
+\clearpage
+
+
 
 \section{Projeto Conceitual}
 
@@ -138,20 +149,17 @@ O sistema deve realizar esses consultas:
                                              
       \hline
                     & Código LP       & Identificador     & Gerado Automaticamente         \\
-                    & Número da LP    & Monovalorasdo      & Obrigatório                    \\
-     Linhas        & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
-     de Pesquisa    & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
-                    & Código Núcleo   & Chave estrangeira & Obrigatório                    \\
+    Linhas          & Número da LP    & Monovalorasdo      & Obrigatório                    \\
+    de Pesquisa       & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
+                     & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
+                   
       \hline
-                    & Código Núcleo       & Identificador     & Gerado Automaticamente         \\
+                    & Código Núcleo       & Identificador     &         \\
       Núcleos       & Nome do Núcleo      & Chave candidata   & Obrigatório                    \\
                     & Descrição Núcleo & Monovalorado      & Obrigatório, <= 400 caracteres \\
       \hline
                     & Código Memórias     & Identificador     & Gerado Automaticamente \\
-                    & Código LP           & Chave estrangeira & Obrigatório            \\
-      Memórias      & Código \linebreak Pesquisador  & Chave estrangeira & Obrigatório            \\
-                    & Links vídeos        & Monovalorado      & Obrigatório            \\
-                    & Links artigos       & Monovalorado      & Obrigatório            \\
+     Memórias       & Código LP           & Chave estrangeira & Obrigatório            \\  
                     & Links fotos         & Monovalorado      & Obrigatório            \\
       \hline 
                     & Código Reunião      & Identificador     & Gerado Automaticamente  \\
@@ -177,17 +185,15 @@ O sistema deve realizar esses consultas:
                   & Código Usuário      & Identificador     & Gerado Automaticamente      \\
                   & E-mail              & Chave candidata   & Obrigatório, formato válido \\
                   & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido \\
-     Usuários     & Senha               & Monovalorado      & Obrigatório, virtual        \\
-                  & Confirmação\linebreak Senha   & Monovalorado      & Obrigatório, virtual        \\
+     Usuários     & Senha               & Monovalorado      & Obrigatório                 \\
                   & Nome completo       & Chave candidata   & Obrigatório                 \\
-                  & Hash Senha          & Monovalorado      & Obrigatório                 \\
-                  & Papéis              & Multivalorado     & Obrigatório                 \\
+                  & Hash Senha          & Monovalorado      & Obrigatório                 \\ 
     \hline
                   & Código\linebreak Administrador & Identificador & Gerado Automaticamente \\ 
     Admins        & Funções              & Multivalorado & Obrigatório            \\
                   & Código Usuário       & Chave estrangeira & Obrigatório        \\
     \hline
-                  & Código\linebreak Pesquisador  & Identificador     & Gerado Automaticamente                               \\
+                 
                   & Data\linebreak nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
                   & CPF                 & Chave candidata   & Obrigatório, \linebreak validação por algoritmo \\
                   & Link Lattes         & Chave candidata   & Obrigatório                                          \\
@@ -199,26 +205,14 @@ O sistema deve realizar esses consultas:
                   & Foto                & Monovalorado      & Obrigatório                                          \\
                   & Minibiografia       & Monovalorado      & Obrigatório, <= 280 caracteres                       \\
                   & Relatórios          & Chave composta    & Obrigatório                                          \\
-                  & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                          \\
-                  & Código Usuário      & Chave estrangeira & Obrigatório                                          \\
+                  & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                \\
+                 
             
     \hline
   \end{tabular}
   \caption{Tipos de atributos por tipo-entidade do DER.}
 \end{table}
 
-
-
-
-
-\clearpage
-\subsection{Diagrama}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=17cm]{figuras/Diagrama.png}
-    \caption{Diagrama}
-    \label{fig:logolatex}
-\end{figure}
 \clearpage
 
 % ----------------------------------------------------------
