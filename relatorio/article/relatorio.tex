@@ -115,11 +115,11 @@ O sistema deve possuir esses diferenciais:
 
 O sistema deve realizar esses consultas:
 \begin{enumerate}
-    
+
     \item Média das memórias artigos publicados de cada pesquisador
     \item Total de linhas de pesquisa por pesquisador
     \item Número total de Pesquisadores por núcleo
-    \item Verificar os papéis de um usuário 
+    \item Verificar os papéis de um usuário
     \item Verificar os participantes de uma reunião
     \item Quantos usuários não confirmaram o email
 \end{enumerate}
@@ -143,74 +143,69 @@ O sistema deve realizar esses consultas:
     \centering
     \vspace{0.5cm}
     \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
-      \hline
-      Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
-     
-                                             
-      \hline
-                    & Código LP       & Identificador     & Gerado Automaticamente         \\
-    Linhas          & Número da LP    & Monovalorasdo      & Obrigatório                    \\
-    de Pesquisa       & Descrição breve & Monovalorado      & Opcional, <= 280 caracteres    \\
-                     & Descrição longa & Monovalorado      & Obrigatório, <= 650 caracteres \\
-                   
-      \hline
-                    & Código Núcleo       & Identificador     &         \\
-      Núcleos       & Nome do Núcleo      & Chave candidata   & Obrigatório                    \\
-                    & Descrição Núcleo & Monovalorado      & Obrigatório, <= 400 caracteres \\
-      \hline
-                    & Código Memórias     & Identificador     & Gerado Automaticamente \\
-     Memórias       & Código LP           & Chave estrangeira & Obrigatório            \\  
-                    & Links fotos         & Monovalorado      & Obrigatório            \\
-      \hline 
-                    & Código Reunião      & Identificador     & Gerado Automaticamente  \\
-                    & Código Usuário      & Chave estrangeira & Obrigatório             \\
-     Reuniões       & Cancelada?          & Monovalorado      & Opcional, padrão: false \\
-                    & Tipo Reunião        & Monovalorado      & Obrigatório             \\
-                    & Data agendada       & Monovalorado      & Obrigatório             \\
-      \hline
+        \hline
+        Tipo-Entidade & Atributo         & Tipo            & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
+
+
+        \hline
+                      & papeis           & Identificador   & Gerado Automaticamente                                          \\
+        Linhas        & Número           & Monovalorasdo   & Obrigatório                                                     \\
+        de Pesquisa   & Descrição        & Monovalorado    & Opcional, <= 280 caracteres                                     \\
+
+        \hline
+        Núcleos       & Nome do Núcleo   & Chave candidata & Obrigatório                                                     \\
+                      & Descrição Núcleo & Monovalorado    & Obrigatório, <= 400 caracteres                                  \\
+        \hline
+                      & Código Memórias  & Identificador   & Gerado Automaticamente                                          \\
+        Memórias      & Links fotos      & Monovalorado    & Obrigatório                                                     \\
+        \hline
+                      & Cancelada?       & Monovalorado    & Opcional, padrão: false                                         \\
+        Reuniões      & Data agendada    & Monovalorado    & Obrigatório                                                     \\
+                      & Tipo             & Monovalorado    & Lideres\linebreak Núcleos\linebreak Geral\linebreak Excepcional \\
+
+        \hline
     \end{tabular}
     \caption{Tipos de atributos por tipo-entidade do DER.}
-  \end{table}
-  \clearpage
+\end{table}
+\clearpage
 \begin{table}[h]
-  \centering
-  \vspace{0.5cm}
-  \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
-   
-    \hline
-    Tipo-Entidade & Atributo & Tipo & Restrições \\ % Note a separação de col. e a quebra de linhas
-   
-    \hline 
-                                % para uma linha horizontal
-                  & Código Usuário      & Identificador     & Gerado Automaticamente      \\
-                  & E-mail              & Chave candidata   & Obrigatório, formato válido \\
-                  & E-mail alternativo  & Chave candidata   & Obrigatório, formato válido \\
-     Usuários     & Senha               & Monovalorado      & Obrigatório                 \\
-                  & Nome completo       & Chave candidata   & Obrigatório                 \\
-                  & Hash Senha          & Monovalorado      & Obrigatório                 \\ 
-    \hline
-                  & Código\linebreak Administrador & Identificador & Gerado Automaticamente \\ 
-    Admins        & Funções              & Multivalorado & Obrigatório            \\
-                  & Código Usuário       & Chave estrangeira & Obrigatório        \\
-    \hline
-                 
-                  & Data\linebreak nascimento  & Chave candidata   & Obrigatório, formato válido                          \\
-                  & CPF                 & Chave candidata   & Obrigatório, \linebreak validação por algoritmo \\
-                  & Link Lattes         & Chave candidata   & Obrigatório                                          \\
-                  & Tipo de bolsa       & Monovalorado      & Obrigatório                                          \\
-                  & LPs Secundárias     & Monovalorado      & Obrigatório                                          \\
-                  & Cidade              & Monovalorado      & Obrigatório                                          \\
-    Pesquisador   & Universidade        & Monovalorado      & Obrigatório                                          \\
-                  & Orientandos         & Monovalorado      & Obrigatório                                          \\
-                  & Foto                & Monovalorado      & Obrigatório                                          \\
-                  & Minibiografia       & Monovalorado      & Obrigatório, <= 280 caracteres                       \\
-                  & Relatórios          & Chave composta    & Obrigatório                                          \\
-                  & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                \\
-                 
-            
-    \hline
-  \end{tabular}
-  \caption{Tipos de atributos por tipo-entidade do DER.}
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+
+        \hline
+        Tipo-Entidade & Atributo                      & Tipo              & Restrições                                             \\ % Note a separação de col. e a quebra de linhas
+
+        \hline
+        % para uma linha horizontal
+                      & Cpf                           & Identificador     & Gerado Automaticamente                                 \\
+                      & E-mail                        & Chave candidata   & Obrigatório, formato válido                            \\
+        Usuários      & Senha                         & Monovalorado      & Obrigatório                                            \\
+                      & Nome completo                 & Chave candidata   & Obrigatório                                            \\
+                      & Hash Senha                    & Monovalorado      & Obrigatório                                            \\
+                      & Tipo                          & Monovalorado      & Administrador\linebreak Pesquisador\linebreak Pescador \\
+        \hline
+
+
+                      & Link Lattes                   & Chave candidata   & Obrigatório                                            \\
+                      & Tipo de bolsa                 & Monovalorado      & Obrigatório                                            \\
+                      & Cidade                        & Monovalorado      & Obrigatório                                            \\
+        Pesquisador   & Universidade                  & Monovalorado      & Obrigatório                                            \\
+                      & Orientandos                   & Monovalorado      & Obrigatório                                            \\
+                      & Minibiografia                 & Monovalorado      & Obrigatório, <= 280 caracteres                         \\                                     \\
+                      & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                            \\
+
+
+
+        \hline
+
+
+
+                      & Autor                        & Monovalorado      & Obrigatório                                            \\
+        Relatório     &                   & Monovalorado      & Obrigatório                                            \\
+                      & Tipo                   & Monovalorado      & Mensal\linebreak Trimestral\linebreak Anual\linebreak                                            \\
+    \end{tabular}
+    \caption{Tipos de atributos por tipo-entidade do DER.}
 \end{table}
 
 \clearpage
@@ -223,7 +218,7 @@ O sistema deve realizar esses consultas:
 
 \begin{itemize}
     \item \href{https://github.com/cciuenf/pea_pescarte/blob/main/doc_projeto/documentos/fluxograma_modulos.pdf}{Fluxograma Módulos PEA Pescarte }
-   
+
 \end{itemize}
 
 \end{document}
