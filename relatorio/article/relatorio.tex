@@ -1,4 +1,3 @@
-
 \documentclass[11pt]{../../classes/ifscarticle}
 \usepackage{../../classes/ifscutils}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
@@ -15,7 +14,7 @@
 \begin{center}
 
     {\large Universidade Estadual Norte Fluminense}\\[0.2cm] %0,2cm é a distância entre o texto dessa linha e o texto da próxima
-    {\large Banco de Dados - Prof(a). Sahudy Montenegro }\\[0.2cm] % o comando \\ "manda" o texto ir para próxima linha
+    {\large Banco de Dados - Prof. Dra. Sahudy Montenegro González    }\\[0.2cm] % o comando \\ "manda" o texto ir para próxima linha
     {\large Ciência da Computação}\\[5.2cm]
 
 
@@ -126,87 +125,132 @@ O sistema deve realizar esses consultas:
 
 
 \clearpage
-\subsection{Diagrama}
+\section{Projeto Conceitual}
+\subsection{Modelo Entidade-Relacionamento}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=17cm]{figuras/Diagrama2.png}
+     \includegraphics[width=19cm]{figuras/Diagrama2.png}
     \caption{Diagrama}
     \label{fig:logolatex}
 \end{figure}
 \clearpage
-
-
-
-\section{Projeto Conceitual}
+\subsection{Tabela de metadados}
+Tabelas de metadados com a descrição do tipo
+de atributos por tipo-entidade e suas restrições.
 
 \begin{table}[h]
     \centering
     \vspace{0.5cm}
     \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
-        \hline
-        Tipo-Entidade & Atributo         & Tipo            & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
-
+        Tipo-Entidade & Atributo        & Tipo          & Restrições                                       \\ % Note a separação de col. e a quebra de linhas
 
         \hline
-                      & papeis           & Identificador   & Gerado Automaticamente                                          \\
-        Linhas        & Número           & Monovalorasdo   & Obrigatório                                                     \\
-        de Pesquisa   & Descrição        & Monovalorado    & Opcional, <= 280 caracteres                                     \\
+        Linhas \linebreak de Pesquisa
+                      &                 &               &                                                  \\
+                      & Descrição curta & Monovalorado  & Obrigatório                        \linebreak    \\
+                      & Número          & Identificador & Obrigatório                         \linebreak   \\
+                      & Descrição longa & Monovalorado  & Opcional, <= 280 caracteres           \linebreak \\
+        \hline
+    \end{tabular}
+    \caption{Tabela de Tipo-Entidade das Linhas de pesquisa.}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+        Tipo-Entidade & Atributo         & Tipo          & Restrições                                \\ % Note a separação de col. e a quebra de linhas
 
         \hline
-        Núcleos       & Nome do Núcleo   & Chave candidata & Obrigatório                                                     \\
-                      & Descrição Núcleo & Monovalorado    & Obrigatório, <= 400 caracteres                                  \\
-        \hline
-                      & Código Memórias  & Identificador   & Gerado Automaticamente                                          \\
-        Memórias      & Links fotos      & Monovalorado    & Obrigatório                                                     \\
-        \hline
-                      & Cancelada?       & Monovalorado    & Opcional, padrão: false                                         \\
-        Reuniões      & Data agendada    & Monovalorado    & Obrigatório                                                     \\
-                      & Tipo             & Monovalorado    & Lideres\linebreak Núcleos\linebreak Geral\linebreak Excepcional \\
+        Núcleo        &                  &               &                                           \\
+                      & Nome             & Identificador & Obrigatório        \linebreak             \\
+                      & Descrição Núcleo & Monovalorado  & Obrigatório, <= 400 caracteres \linebreak \\
 
         \hline
     \end{tabular}
-    \caption{Tipos de atributos por tipo-entidade do DER.}
+    \caption{Tabela de Tipo-Entidade do Núcleo.}
 \end{table}
-\clearpage
+
+
 \begin{table}[h]
     \centering
     \vspace{0.5cm}
     \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+        Tipo-Entidade & Atributo & Tipo          & Restrições                                \\ % Note a separação de col. e a quebra de linhas
 
         \hline
-        Tipo-Entidade & Atributo                      & Tipo              & Restrições                                             \\ % Note a separação de col. e a quebra de linhas
+        Memórias
+                      &          &               &                                           \\
+                      & Link     & Chave parcial & Obrigatório    \linebreak                 \\
+                      & Tipos    & Monovalorado  & Video \linebreak Imagem \linebreak Artigo \\
+
+        \hline
+    \end{tabular}
+    \caption{Tipos de atributos por tipo-entidade da Memória.}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+
+
+        Tipo-Entidade & Atributo      & Tipo            & Restrições                                             \\ % Note a separação de col. e a quebra de linhas
 
         \hline
         % para uma linha horizontal
-                      & Cpf                           & Identificador     & Gerado Automaticamente                                 \\
-                      & E-mail                        & Chave candidata   & Obrigatório, formato válido                            \\
-        Usuários      & Senha                         & Monovalorado      & Obrigatório                                            \\
-                      & Nome completo                 & Chave candidata   & Obrigatório                                            \\
-                      & Hash Senha                    & Monovalorado      & Obrigatório                                            \\
-                      & Tipo                          & Monovalorado      & Administrador\linebreak Pesquisador\linebreak Pescador \\
-        \hline
-
-
-                      & Link Lattes                   & Chave candidata   & Obrigatório                                            \\
-                      & Tipo de bolsa                 & Monovalorado      & Obrigatório                                            \\
-                      & Cidade                        & Monovalorado      & Obrigatório                                            \\
-        Pesquisador   & Universidade                  & Monovalorado      & Obrigatório                                            \\
-                      & Orientandos                   & Monovalorado      & Obrigatório                                            \\
-                      & Minibiografia                 & Monovalorado      & Obrigatório, <= 280 caracteres                         \\                                     \\
-                      & Código\linebreak LP principal & Chave estrangeira & Obrigatório                                            \\
-
-
+        Usuario
+                      &               &                 &                                                        \\
+                      & Cpf           & Identificador   & Obrigatório            \linebreak                      \\
+                      & E-mail        & Chave candidata & Obrigatório        \linebreak                          \\
+                      & Nome completo & Chave candidata & Obrigatório                        \linebreak          \\
+                      & Data nasc     & Monovalorado    & Obrigatório                        \linebreak          \\
+                      & Hash Senha    & Monovalorado    & Obrigatório                        \linebreak          \\
+                      & Tipo          & Monovalorado    & Administrador\linebreak Pesquisador\linebreak Pescador \\
 
         \hline
-
-
-
-                      & Autor                        & Monovalorado      & Obrigatório                                            \\
-        Relatório     &                   & Monovalorado      & Obrigatório                                            \\
-                      & Tipo                   & Monovalorado      & Mensal\linebreak Trimestral\linebreak Anual\linebreak                                            \\
     \end{tabular}
-    \caption{Tipos de atributos por tipo-entidade do DER.}
+    \caption{Tabela de Tipo-Entidade do Usuario.}
 \end{table}
+
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+
+        Tipo-Entidade & Atributo      & Tipo            & Restrições                                                     \\ % Note a separação de col. e a quebra de linhas
+        \hline
+        Pesquisador
+                      &               &                 &                                                                \\
+                      & Link Lattes   & Chave candidata & Obrigatório                                        \linebreak  \\
+                      & Tipo de bolsa & Monovalorado    & Obrigatório                                        \linebreak  \\
+                      & Minibiografia & Monovalorado    & Obrigatório, <= 280 caracteres                      \linebreak \\
+        \hline
+    \end{tabular}
+    \caption{Tabela de Tipo-Entidade do Pesquisador.}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+
+
+        Tipo-Entidade & Atributo & Tipo          & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
+        \hline
+        Relatório
+                      &          &               &                                                                 \\
+                      & Link     & Monovalorado  & Obrigatório                                          \linebreak \\
+                      & Data     & Chave parcial & Obrigatório                                          \linebreak \\
+                      & Tipo     & Monovalorado  & Mensal\linebreak Trimestral\linebreak Anual                     \\
+        \hline
+    \end{tabular}
+    \caption{Tabela de Tipo-Entidade do Relatório}
+\end{table}
+
 
 \clearpage
 
