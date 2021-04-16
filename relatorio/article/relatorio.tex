@@ -105,7 +105,6 @@ O sistema deve possuir esses diferenciais:
     \item Tornar as "memórias"\ públicas
     \item Expor dados informativos sobre os Núcleos, linhas de pesquisa e pesquisadores
     \item Consulta confirmação de email de usuário
-    \item Verificar o papel do usuário
     \item Permitir o cadastro de pesquisadores e montagem do relatórios apenas aos administradores
 \end{enumerate}
 
@@ -118,7 +117,6 @@ O sistema deve realizar esses consultas:
     \item Média das memórias artigos publicados de cada pesquisador
     \item Total de linhas de pesquisa por pesquisador
     \item Número total de Pesquisadores por núcleo
-    \item Verificar os papéis de um usuário
     \item Verificar os participantes de uma reunião
     \item Quantos usuários não confirmaram o email
 \end{enumerate}
@@ -232,6 +230,7 @@ de atributos por tipo-entidade e suas restrições.
     \caption{Tabela de Tipo-Entidade do Pesquisador.}
 \end{table}
 
+\clearpage
 
 \begin{table}[h]
     \centering
@@ -246,6 +245,40 @@ de atributos por tipo-entidade e suas restrições.
                       & Link     & Monovalorado  & Obrigatório                                          \linebreak \\
                       & Data     & Chave parcial & Obrigatório                                          \linebreak \\
                       & Tipo     & Monovalorado  & Mensal\linebreak Trimestral\linebreak Anual                     \\
+        \hline
+    \end{tabular}
+    \caption{Tabela de Tipo-Entidade do Relatório}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+
+
+        Tipo-Entidade & Atributo & Tipo          & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
+        \hline
+        Universidade
+                      &          &               &                                                                 \\
+                      & Nome     & Identificador  & Obrigatório                                          \linebreak \\
+        \hline
+    \end{tabular}
+    \caption{Tabela de Tipo-Entidade do Relatório}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \vspace{0.5cm}
+    \begin{tabular}{ p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
+
+
+        Tipo-Entidade & Atributo & Tipo          & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
+        \hline
+        Cidade
+                      &          &               &                                                                 \\
+                      & Municipio     & Identificador  & Obrigatório                                          \linebreak \\
         \hline
     \end{tabular}
     \caption{Tabela de Tipo-Entidade do Relatório}
