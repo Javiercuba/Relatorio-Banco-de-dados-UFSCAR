@@ -59,7 +59,12 @@ Javier Ernesto Lopez Del Real
 \section{Introdução}
 \label{sec:introducao}
 
-O Projeto de Educação Ambiental(PEA) PESCARTE tem como sua principal finalidade a criação de uma rede social regional integrada por pescadores artesanais e por seus familiares, buscando, por meio de processos educativos, promover, fortalecer e aperfeiçoar a sua organização comunitária e a sua qualificação profissional, bem como o seu envolvimento na construção participativa e na implementação de projetos de geração de trabalho e renda.
+O Projeto de Educação Ambiental(PEA) PESCARTE tem como sua principal
+finalidade a criação de uma rede social regional integrada por
+pescadores artesanais e por seus familiares, buscando, por meio de
+processos educativos, promover, fortalecer e aperfeiçoar a sua organização
+comunitária e a sua qualificação profissional, bem como o seu envolvimento na
+construção participativa e na implementação de projetos de geração de trabalho e renda.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.5\linewidth]{figuras/logoPescarte}
@@ -69,56 +74,74 @@ O Projeto de Educação Ambiental(PEA) PESCARTE tem como sua principal finalidad
 
 \section{Descrição do problema}
 
-O PEA PESCARTE é divido por quatro núcleos:
+O PEA PESCARTE é composto pelo núcleo de pesquisa estruturado
+em quatro sub-núcleos. As 21(Vinte e uma) linhas de pesquisa
+estão distribuidas nos sub-núcleos a seguir:
 \begin{itemize}
     \item Núcleo A
     \item Núcleo B
     \item Núcleo C
     \item Núcleo D
 \end{itemize}
-Esses Núcleos são compostos por 21(Vinte e uma) linhas
-de pesquisa que por sua vez são formadas por
-diversos pesquisadores. Um pesquisador possui três tipos:
+As linhas de pesquisa ficam distribuídas entre os quatro núcleos,
+cada linhas de pesquisa possui diversos pesquisadores.
+Existem alguns tipos de pesquisadores:
 \begin{itemize}
-    \item Pesquisador de Iniciação Científica
+    \item Pesquisador de iniciação científica
+    \item Pesquisador
+    \item Pesquisador Pós-doc
+    \item Pesquisador de doutorado
+    \item Pesquisador consultor
     \item Pesquisador de mestrado
-    \item Coordenador
+    \item Coordenador técnico
+    \item Coordenador pedagógico
+    \item Integrante voluntário
 \end{itemize}
-Cada pesquisador possui uma linha de pesquisa principal,
-contudo pode haver participação em outras linhas de pesquisa.
+\clearpage
+Cada pesquisador pode ser responsável por uma linha de pesquisa,
+contudo pode participar em várias linhas de pesquisa.
 O trabalho desses pesquisadores na linha de pesquisa resulta
 em "memórias", que podem ser divididas em vídeos, fotos e artigos.\\
-Além das memórias, todos os pesquisadores participam de vários tipos
-de reuniões agendadas:
+%os pesquisadores participam de vários tipos
+%de reuniões agendadas:
+%begin{itemize}
+%    \item Reunião exclusiva para líderes das linhas de pesquisa
+%    \item Reuniões específicas de cada Núcleo
+%    \item Reuniões gerais com todos os Núcleos
+%    \item Reuniões excepcionais
+%\end{itemize}
+Além das memórias, todos os pesquisadores precisam entregar relatórios mensais,
+trimestrais e anuais contemplando as pesquisas desenvolvidas. Não serão responsáveis
+por linha de pesquisa:
 \begin{itemize}
-    \item Reunião exclusiva para líderes das linhas de pesquisa
-    \item Reuniões específicas de cada Núcleo
-    \item Reuniões gerais com todos os Núcleos
-    \item Reuniões excepcionais
+    \item Pesquisador de iniciação científica;
+    \item Intregante voluntário.
 \end{itemize}
-Outrossim, os pesquisadores precisam entregar relatórios mensais,
-trimestrais e anuais contemplando as soluções desenvolvidas até tal ponto.\\
-\clearpage
+Em resumo, cada pesquisador é obrigado a entregar nove relatórios mensais,
+dois relatórios trimestrais e um anual para cada ano de execução do projeto.
+
 O sistema deve possuir esses diferenciais:
 
 \begin{enumerate}
-    \item Tornar as "memórias"\ públicas
-    \item Expor dados informativos sobre os Núcleos, linhas de pesquisa e pesquisadores
-    \item Consulta confirmação de email de usuário
-    \item Permitir o cadastro de pesquisadores e montagem do relatórios apenas aos administradores
+    %\item Tornar as "memórias"\ públicas
+    \item Expor dados informativos sobre os Núcleos, linhas de pesquisa e pesquisadores;
+          %\item Consulta confirmação de email de usuário
+    \item Permitir a criação e visualização de relatórios dos pesquisadores;
+    \item Permitir a importação de memórias.
 \end{enumerate}
 
 \subsection{Consultas}
 
 
-O sistema deve realizar esses consultas:
+O sistema deve realizar as seguintes consultas:
 \begin{enumerate}
-
-    \item Média das memórias artigos publicados de cada pesquisador
-    \item Total de linhas de pesquisa por pesquisador
-    \item Número total de Pesquisadores por núcleo
-    \item Verificar os participantes de uma reunião
-    \item Quantos usuários não confirmaram o email
+    \item A média de cada tipo de memória por cada pesquisador;
+    \item Verificar quem não entregou o relatório em um período de tempo;
+    \item Total de linhas de pesquisa por pesquisador;
+    \item Número total de Pesquisadores por núcleo;
+    \item Quantos usuários não confirmaram o email?;
+          %\item Listar todo os relatórios e memórias de uma determinada linha de pesquisa.
+    \item Listar todo os relatórios e memórias de um pesquisador.
 \end{enumerate}
 
 
@@ -127,7 +150,7 @@ O sistema deve realizar esses consultas:
 \subsection{Modelo Entidade-Relacionamento}
 \begin{figure}[h]
     \centering
-     \includegraphics[width=19cm]{figuras/Diagrama2.png}
+    \includegraphics[width=19cm]{figuras/Diagrama.png}
     \caption{Diagrama}
     \label{fig:logolatex}
 \end{figure}
@@ -180,7 +203,7 @@ de atributos por tipo-entidade e suas restrições.
         \hline
         Memórias
                       &          &               &                                           \\
-                      & Link     & Chave parcial & Obrigatório    \linebreak                 \\
+                      & Link    & Chave parcial & Obrigatório    \linebreak                 \\
                       & Tipos    & Monovalorado  & Video \linebreak Imagem \linebreak Artigo \\
 
         \hline
@@ -242,8 +265,8 @@ de atributos por tipo-entidade e suas restrições.
         \hline
         Relatório
                       &          &               &                                                                 \\
-                      & Link     & Monovalorado  & Obrigatório                                          \linebreak \\
-                      & Data     & Chave parcial & Obrigatório                                          \linebreak \\
+                      & Mês      & Chave parcial & Obrigatório                                          \linebreak \\
+                      & Ano      & Chave parcial & Obrigatório                                          \linebreak \\
                       & Tipo     & Monovalorado  & Mensal\linebreak Trimestral\linebreak Anual                     \\
         \hline
     \end{tabular}
@@ -261,10 +284,10 @@ de atributos por tipo-entidade e suas restrições.
         \hline
         Universidade
                       &          &               &                                                                 \\
-                      & Nome     & Identificador  & Obrigatório                                          \linebreak \\
+                      & Nome     & Identificador & Obrigatório                                          \linebreak \\
         \hline
     \end{tabular}
-    \caption{Tabela de Tipo-Entidade do Relatório}
+    \caption{Tabela de Tipo-Entidade do Universidade}
 \end{table}
 
 
@@ -274,29 +297,21 @@ de atributos por tipo-entidade e suas restrições.
     \begin{tabular}{ p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
 
 
-        Tipo-Entidade & Atributo & Tipo          & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
+        Tipo-Entidade & Atributo  & Tipo          & Restrições                                                      \\ % Note a separação de col. e a quebra de linhas
         \hline
         Cidade
-                      &          &               &                                                                 \\
-                      & Municipio     & Identificador  & Obrigatório                                          \linebreak \\
+                      &           &               &                                                                 \\
+                      & Municipio & Identificador & Obrigatório                                          \linebreak \\
         \hline
     \end{tabular}
-    \caption{Tabela de Tipo-Entidade do Relatório}
+    \caption{Tabela de Tipo-Entidade da Cidade}
 \end{table}
 
-
-\clearpage
 
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\bibliography{referencias}        %use a bibtex bibliography file refs.bib
 
-
-\begin{itemize}
-    \item \href{https://github.com/cciuenf/pea_pescarte/blob/main/doc_projeto/documentos/fluxograma_modulos.pdf}{Fluxograma Módulos PEA Pescarte }
-
-\end{itemize}
 
 \end{document}
 
