@@ -1,3 +1,4 @@
+
 \documentclass[11pt]{../../classes/ifscarticle}
 \usepackage{../../classes/ifscutils}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
@@ -169,7 +170,7 @@ de atributos por tipo-entidade e suas restrições.
         Linhas \linebreak de Pesquisa
                       &                 &               &                                                  \\
                       & Descrição curta & Monovalorado  & Obrigatório                        \linebreak    \\
-                      & Número          & Identificador & Obrigatório                         \linebreak   \\
+                      & Número\underline{ }\underline{ }linha    & Identificador & Obrigatório                         \linebreak   \\
                       & Descrição longa & Monovalorado  & Opcional, <= 280 caracteres           \linebreak \\
         \hline
     \end{tabular}
@@ -307,10 +308,26 @@ de atributos por tipo-entidade e suas restrições.
     \caption{Tabela de Tipo-Entidade da Cidade}
 \end{table}
 
+\clearpage
 
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
+\section{Modelo Relacional}
+
+\subsection{Pesquisador}
+
+linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
+
+
+pesquisador (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
+
+\subsection{Núcleo}
+
+\begin{itemize}
+    
+    \item linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
+    \item nucleos (\underline{nome} ,decricao\underline{ }\underline{ }nucleo)
+    \item memorias (\underline{numero\underline{ }\underline{ }linha}, \underline{link})
+    \item usuario (\underline{cpf}, email, nome\underline{ }\underline{ }completo, data\underline{ }\underline{ }nasc, hash\underline{ }\underline{ }senha, tipo)
+\end{itemize}
 
 
 \end{document}
