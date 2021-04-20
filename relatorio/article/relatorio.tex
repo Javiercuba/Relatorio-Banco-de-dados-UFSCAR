@@ -51,6 +51,7 @@ Javier Ernesto Lopez Del Real
 % Adicionando sumário
 % ------------------------------------------------------------%
 \tableofcontents
+
 \clearpage
 
 % ------------------------------------------------------------%
@@ -149,7 +150,7 @@ O sistema deve realizar as seguintes consultas:
 \section{Projeto Conceitual}
 \subsection{Modelo Entidade-Relacionamento}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=19cm]{figuras/Diagrama.png}
     \caption{Diagrama}
@@ -164,14 +165,14 @@ de atributos por tipo-entidade e suas restrições.
     \centering
     \vspace{0.5cm}
     \begin{tabular}{ |p{2,5cm}|p{3cm}|p{4cm}|p{5,3cm}|  }
-        Tipo-Entidade & Atributo        & Tipo          & Restrições                                       \\ % Note a separação de col. e a quebra de linhas
+        Tipo-Entidade & Atributo                              & Tipo          & Restrições                                       \\ % Note a separação de col. e a quebra de linhas
 
         \hline
         Linhas \linebreak de Pesquisa
-                      &                 &               &                                                  \\
-                      & Descrição curta & Monovalorado  & Obrigatório                        \linebreak    \\
-                      & Número\underline{ }\underline{ }linha    & Identificador & Obrigatório                         \linebreak   \\
-                      & Descrição longa & Monovalorado  & Opcional, <= 280 caracteres           \linebreak \\
+                      &                                       &               &                                                  \\
+                      & Descrição curta                       & Monovalorado  & Obrigatório                        \linebreak    \\
+                      & Número\underline{ }\underline{ }linha & Identificador & Obrigatório                         \linebreak   \\
+                      & Descrição longa                       & Monovalorado  & Opcional, <= 280 caracteres           \linebreak \\
         \hline
     \end{tabular}
     \caption{Tabela de Tipo-Entidade das Linhas de pesquisa.}
@@ -204,7 +205,7 @@ de atributos por tipo-entidade e suas restrições.
         \hline
         Memórias
                       &          &               &                                           \\
-                      & Link    & Chave parcial & Obrigatório    \linebreak                 \\
+                      & Link     & Chave parcial & Obrigatório    \linebreak                 \\
                       & Tipos    & Monovalorado  & Video \linebreak Imagem \linebreak Artigo \\
 
         \hline
@@ -314,20 +315,44 @@ de atributos por tipo-entidade e suas restrições.
 
 \subsection{Pesquisador}
 
-linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
 
-
-pesquisador (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
-
-\subsection{Núcleo}
+pesquisador (\underline{link\underline{ }\underline{ }lattes},
+tipo\underline{ }\underline{ }bolsa,
+minibiografia,\\
+cod\underline{ }\underline{ }orientador,
+é\underline{ }\underline{ }principal,
+é\underline{ }\underline{ }lider\underline{ }\underline{ }pesquisa,
+numero\underline{ }\underline{ }linha)
 
 \begin{itemize}
-    \item linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
-    \item nucleos (\underline{nome} ,decricao\underline{ }\underline{ }nucleo)
-    \item memorias (\underline{numero\underline{ }\underline{ }linha}, \underline{link})
-    \item usuario (\underline{cpf}, email, nome\underline{ }\underline{ }completo, data\underline{ }\underline{ }nasc, hash\underline{ }\underline{ }senha, tipo)
+    \item cod\underline{ }\underline{ }orientador referencia pesquisador;
+    \item numero\underline{ }\underline{ }linha referencia Linhas de Pesquisa.\\
 \end{itemize}
 
+memorias (tipo,\underline{link},\\
+\underline{link\underline{ }\underline{ }lattes},
+
+)
+
+\begin{itemize}
+    \item cod\underline{ }\underline{ }orientador referencia pesquisador;
+    \item numero\underline{ }\underline{ }linha referencia Linhas de Pesquisa.
+\end{itemize}
+
+linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
+
+%\textcolor{pink}{tyestasasasasasas}
+
+nucleos (\underline{nome} ,decricao\underline{ }\underline{ }nucleo)
+
+
+
+
+
+usuario (\underline{cpf}, email, nome\underline{ }\underline{ }completo, data\underline{ }\underline{ }nasc, hash\underline{ }\underline{ }senha, tipo)
+
+
+%Qual o identificador do pesquisador, é o CPF do usuario?
 
 \end{document}
 
