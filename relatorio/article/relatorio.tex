@@ -312,45 +312,65 @@ de atributos por tipo-entidade e suas restrições.
 \clearpage
 
 \section{Modelo Relacional}
-
 \subsection{Pesquisador}
 
-
-pesquisador (\underline{link\underline{ }\underline{ }lattes},
+pesquisador (\underline{cpf\underline{ }\underline{ }usuário},
 tipo\underline{ }\underline{ }bolsa,
-minibiografia,\\
-cod\underline{ }\underline{ }orientador,
-é\underline{ }\underline{ }principal,
-é\underline{ }\underline{ }lider\underline{ }\underline{ }pesquisa,
-numero\underline{ }\underline{ }linha)
+minibiografia,
+cod\underline{ }\underline{ }orientador)
 
 \begin{itemize}
-    \item cod\underline{ }\underline{ }orientador referencia pesquisador;
-    \item numero\underline{ }\underline{ }linha referencia Linhas de Pesquisa.\\
+    \item cpf\underline{ }\underline{ }usuário referencia usuario;
+    \item cod\underline{ }\underline{ }orientador referencia o proprio pesquisador;
 \end{itemize}
 
-memorias (tipo,\underline{link},\\
-\underline{link\underline{ }\underline{ }lattes},
-
-)
+\subsection{Memórias}
+memorias (tipo,
+\underline{link},
+\underline{cpf\underline{ }\underline{ }usuário})
 
 \begin{itemize}
-    \item cod\underline{ }\underline{ }orientador referencia pesquisador;
+    \item \underline{cpf\underline{ }\underline{ }usuário} referencia pesquisador;
+\end{itemize}
+
+\subsection{Relatórios}
+memorias (link,
+\underline{ano},
+\underline{mes},
+\underline{link\underline{ }\underline{ }lattes})
+
+\begin{itemize}
+    \item \underline{cpf\underline{ }\underline{ }usuário} referencia pesquisador;
+\end{itemize}
+\subsection{Linhas de Pesquisa}
+linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha},
+decricao\underline{ }\underline{ }curta,
+descricao\underline{ }\underline{ }longa,
+nome\underline{ }\underline{ }nucleo)
+
+
+\begin{itemize}
+    \item nome\underline{ }\underline{ }nucleo referencia nucleo;
+\end{itemize}
+
+%\textcolor{pink}{tyestasasasasasas}
+\subsection{Núcleos}
+nucleo (\underline{nome}, decricao\underline{ }\underline{ }nucleo)
+
+\subsection{Pertence}
+pertence (é\underline{ }\underline{ }principal,
+é\underline{ }\underline{ }lider\underline{ }\underline{ }pesquisa,
+\underline{cpf\underline{ }\underline{ }usuário},
+\underline{numero\underline{ }\underline{ }linha})
+
+
+\begin{itemize}
+    \item link\underline{ }\underline{ }lattes referencia pesquisador;
     \item numero\underline{ }\underline{ }linha referencia Linhas de Pesquisa.
 \end{itemize}
 
-linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha}, decricao\underline{ }\underline{ }curta, descricao\underline{ }\underline{ }longa)
-
-%\textcolor{pink}{tyestasasasasasas}
-
-nucleos (\underline{nome} ,decricao\underline{ }\underline{ }nucleo)
-
-
-
-
-
+\subsection{Usuario}
 usuario (\underline{cpf}, email, nome\underline{ }\underline{ }completo, data\underline{ }\underline{ }nasc, hash\underline{ }\underline{ }senha, tipo)
-
 
 %Qual o identificador do pesquisador, é o CPF do usuario?
 
