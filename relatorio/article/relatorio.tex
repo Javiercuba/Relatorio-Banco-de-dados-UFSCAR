@@ -312,67 +312,41 @@ de atributos por tipo-entidade e suas restrições.
 \clearpage
 
 \section{Modelo Relacional}
-\subsection{Pesquisador}
+O projeto do moelo relacional é apresentado no quadro:
+\begin{lstlisting}[
+    escapechar=\%,
+    language=SQL,
+    showspaces=false,
+    basicstyle=\ttfamily,
+    numbers=none,
+    numberstyle=\tiny,
+    commentstyle=\color{gray}
+ ]
+ usuario(%\underline{cpf}%, email, nome_completo, data_nasc, hash_senha, tipo)
 
-pesquisador (\underline{cpf\underline{ }\underline{ }usuário},
-tipo\underline{ }\underline{ }bolsa,
-minibiografia,
-cod\underline{ }\underline{ }orientador)
+ nucleo(%\underline{nome}%, decricao_nucleo)
 
-\begin{itemize}
-    \item cpf\underline{ }\underline{ }usuário referencia usuario;
-    \item cod\underline{ }\underline{ }orientador referencia o proprio pesquisador;
-\end{itemize}
+ pesquisador(%\underline{cpf\_usuário}%, tipo_bolsa, minibiografia, cod_orientador)
+    cpf_usuário referencia usuario
+    cod_orientador referencia o proprio pesquisador
 
-\subsection{Memórias}
-memorias (tipo,
-\underline{link},
-\underline{cpf\underline{ }\underline{ }usuário})
+ memorias(%\underline{link}%,%\underline{cpf\_usuário}%,tipo)
+    cpf_usuário referencia pesquisador
 
-\begin{itemize}
-    \item \underline{cpf\underline{ }\underline{ }usuário} referencia pesquisador;
-\end{itemize}
+ relatórios (link,%\underline{ano}%,%\underline{mes}%,%\underline{cpf\_usuario}%)
+    cpf_usuário referencia pesquisador
 
-\subsection{Relatórios}
-memorias (link,
-\underline{ano},
-\underline{mes},
-\underline{link\underline{ }\underline{ }lattes})
+ linhas_pesquisa(%\underline{numero\_linha}%,decricao_curta,descricao_longa,nome_nucleo)
+    nome_nucleo referencia nucleo
 
-\begin{itemize}
-    \item \underline{cpf\underline{ }\underline{ }usuário} referencia pesquisador;
-\end{itemize}
-\subsection{Linhas de Pesquisa}
-linhas\underline{ }\underline{ }pesquisa (\underline{numero\underline{ }\underline{ }linha},
-decricao\underline{ }\underline{ }curta,
-descricao\underline{ }\underline{ }longa,
-nome\underline{ }\underline{ }nucleo)
+ pertence (%\underline{cpf\_usuário}%,%\underline{numero\_linha}%,é_principal,é_lider_pesquisa)
+    cpf_usuario referencia o pesquisa
+    numero_linha referencia linhas_pesquisa.
+\end{lstlisting}
 
 
-\begin{itemize}
-    \item nome\underline{ }\underline{ }nucleo referencia nucleo;
-\end{itemize}
-
-%\textcolor{pink}{tyestasasasasasas}
-\subsection{Núcleos}
-nucleo (\underline{nome}, decricao\underline{ }\underline{ }nucleo)
-
-\subsection{Pertence}
-pertence (é\underline{ }\underline{ }principal,
-é\underline{ }\underline{ }lider\underline{ }\underline{ }pesquisa,
-\underline{cpf\underline{ }\underline{ }usuário},
-\underline{numero\underline{ }\underline{ }linha})
-
-
-\begin{itemize}
-    \item link\underline{ }\underline{ }lattes referencia pesquisador;
-    \item numero\underline{ }\underline{ }linha referencia Linhas de Pesquisa.
-\end{itemize}
-
-\subsection{Usuario}
-usuario (\underline{cpf}, email, nome\underline{ }\underline{ }completo, data\underline{ }\underline{ }nasc, hash\underline{ }\underline{ }senha, tipo)
-
-%Qual o identificador do pesquisador, é o CPF do usuario?
+Explicar porque o mapeamento do modelo 
+do relacionamento das hierarquias
 
 \end{document}
 
