@@ -325,6 +325,8 @@ O projeto do moelo relacional é apresentado no quadro:
  usuario(%\underline{cpf}%, email, nome_completo, data_nasc, hash_senha, tipo)
 
  nucleo(%\underline{nome}%, decricao_nucleo)
+ 
+ cidade(%\underline{municipio}%)
 
  pesquisador(%\underline{cpf\_usuário}%, tipo_bolsa, minibiografia, cod_orientador)
     cpf_usuário referencia usuario
@@ -339,14 +341,28 @@ O projeto do moelo relacional é apresentado no quadro:
  linhas_pesquisa(%\underline{numero\_linha}%,decricao_curta,descricao_longa,nome_nucleo)
     nome_nucleo referencia nucleo
 
+ universidade(%\underline{nome\_cidade}%,%\underline{nome}%, %\underline{cpf\_usuário}%)
+    cpf_usuário referencia usuario
+    nome_cidade referencia cidade
+
  pertence (%\underline{cpf\_usuário}%,%\underline{numero\_linha}%,é_principal,é_lider_pesquisa)
     cpf_usuario referencia o pesquisa
     numero_linha referencia linhas_pesquisa.
 \end{lstlisting}
 
+O mapeamento do modelo do relacionamento das hierarquias
+foi feito seguindo os seguintes pontos:
 
-Explicar porque o mapeamento do modelo 
-do relacionamento das hierarquias
+A separação de pesquisador com o usuario foi realizada 
+pois brevemente teremos outros tipos de usuarios, 
+sendo assim 
+o pesquisador é referencia do usuario. 
+Todo pesquisador pode ter memórias
+e relatórios, entretanto não é possivel criar algum deles sem 
+o pesquisador e ambos são referenciados pelo pesquisador.
+
+
+
 
 \end{document}
 
