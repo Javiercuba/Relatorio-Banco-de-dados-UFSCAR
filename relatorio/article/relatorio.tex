@@ -312,7 +312,7 @@ de atributos por tipo-entidade e suas restrições.
 \clearpage
 
 \section{Modelo Relacional}
-O projeto do moelo relacional é apresentado no quadro:
+O projeto do modelo relacional é apresentado no quadro:
 \begin{lstlisting}[
     escapechar=\%,
     language=SQL,
@@ -328,36 +328,35 @@ O projeto do moelo relacional é apresentado no quadro:
  
  cidade(%\underline{municipio}%)
 
- pesquisador(%\underline{cpf\_usuário}%, tipo_bolsa, minibiografia, cod_orientador)
-    cpf_usuário referencia usuario
+ pesquisador(%\underline{cpf\_usuario}%, tipo_bolsa, minibiografia, cod_orientador)
+    cpf_usuario referencia usuario
     cod_orientador referencia o proprio pesquisador
 
- memorias(%\underline{link}%,%\underline{cpf\_usuário}%,tipo)
-    cpf_usuário referencia pesquisador
+ memorias(%\underline{link}%, %\underline{cpf\_usuário}%, tipo)
+    cpf_usuario referencia pesquisador
 
- relatórios (link,%\underline{ano}%,%\underline{mes}%,%\underline{cpf\_usuario}%)
-    cpf_usuário referencia pesquisador
+ relatorios (link, %\underline{ano}%, %\underline{mes}%, %\underline{cpf\_usuario}%)
+    cpf_usuario referencia pesquisador
 
- linhas_pesquisa(%\underline{numero\_linha}%,decricao_curta,descricao_longa,nome_nucleo)
+ linhas_pesquisa(%\underline{numero\_linha}%, %\underline{nome\_nucleo}%, decricao_curta, descricao_longa)
     nome_nucleo referencia nucleo
 
- universidade(%\underline{nome\_cidade}%,%\underline{nome}%, %\underline{cpf\_usuário}%)
-    cpf_usuário referencia usuario
+ universidade(%\underline{nome\_cidade}%,%\underline{nome}%, %\underline{cpf\_usuario}%)
+    cpf_usuario referencia usuario
     nome_cidade referencia cidade
 
- pertence (%\underline{cpf\_usuário}%,%\underline{numero\_linha}%,é_principal,é_lider_pesquisa)
-    cpf_usuario referencia o pesquisa
-    numero_linha referencia linhas_pesquisa.
+ pertence (%\underline{cpf\_usuario}%, %\underline{numero\_linha}%, e_principal, e_lider_pesquisa)
+    cpf_usuario referencia o pesquisador
+    numero_linha referencia linhas_pesquisa
 \end{lstlisting}
 
 O mapeamento do usuario será caracterizado pela  
 generalização/especialização pois existem 
-outros tipos de usuarios além do pesquisador.
+outros tipos de usuarios além do Pesquisador.
+
 Possuindo uma tabela de hierarquia Usuario e
 uma tabela por identidade especializada no caso 
 é o Pesquisador
-
-
 
 \end{document}
 
