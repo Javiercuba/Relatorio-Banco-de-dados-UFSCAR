@@ -350,36 +350,13 @@ O projeto do moelo relacional é apresentado no quadro:
     numero_linha referencia linhas_pesquisa.
 \end{lstlisting}
 
-O mapeamento do modelo do relacionamento das hierarquias
-foi feito seguindo os seguintes pontos.
+O mapeamento do usuario será caracterizado pela  
+generalização/especialização pois existem 
+outros tipos de usuarios além do pesquisador.
+Possuindo uma tabela de hierarquia Usuario e
+uma tabela por identidade especializada no caso 
+é o Pesquisador
 
-O mapeamento da hierarquia do usuario acontece de 1:n onde 
-existem varios tipos de usuarios.
-
-
-
-do pesquisador com o usuario foi realizada 
-pois futuramente teremos outros tipos de usuarios, 
-assim o pesquisador é referenciado pelo usuario. 
-Todo pesquisador pode ter memórias
-e relatórios, entretanto não é possivel
-cria-los sem o pesquisador, e ambos são
-referenciados pelo pesquisador.
-
-
-Os relatorios possuem meês e ano como identificadores 
-pois existem relatórios mensais, trimestrais e anuais.
-
-
-As linhas de pesquisa são referenciadas pelo pesquisador e pelo 
-nucleo, onde cada pesquisador pode ter pelo menos uma 
-linha de pesquisa e necessariamente essa linha pertencer 
-a algum nucleo.
-
-
-O relacionamento entre o pesquisador e a linha de pesquisa é
-para sa squisador esta na sua linha principal e
-se ele é lider dessa linha de pesquisa.
 
 
 \end{document}
