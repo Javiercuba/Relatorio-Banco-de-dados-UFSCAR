@@ -350,21 +350,11 @@ O projeto do modelo relacional é apresentado no quadro:
     numero_linha referencia linhas_pesquisa
 \end{lstlisting}
 
-O mapeamento do usuario será caracterizado pela  
-generalização/especialização pois existem 
-outros tipos de usuários além do Pesquisador.
-
-Possuindo uma tabela de hierarquia Usuario e
-uma tabela por identidade especializada no caso 
-é o Pesquisador.
-
-Já as memórias e os relatórios são entidades fracas pois são
-geradas a partir do trabalho de um ou mais Pesquisadores.
-
-Cada Pesquisador pertence a uma ou mais Linhas de Pesquisa,
-portanto, a partir desse relacionamento podemos aferir se
-tal Pesquisador é o Líder de Pesquisa da Linha e se essa
-Linha é a principal do Pesquisador.
+O mapeamento do usuario é caracterizado pela  
+generalização/especialização onde se
+está utilizando a opção de uma tabela
+para cada tipo de entidade, facilitando 
+as possiveis alterações nas tabelas.
 
 \end{document}
 
