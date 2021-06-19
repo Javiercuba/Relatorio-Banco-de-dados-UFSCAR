@@ -3,30 +3,28 @@ CREATE TABLE usuario(
 	email varchar(100),
 	data_nasc date,
 	tipo varchar(100),
-	cpf_usuario INT PRIMARY KEY --ERRO QUANDO TENTO O CPF TODO
+	cpf_usuario bigint PRIMARY KEY --ERRO QUANDO TENTO O CPF TODO
 )
 
 CREATE TABLE pesquisador(
 	tipo_bolsa varchar(100),
 	minibiografia varchar(100),
-	cpf_pesquisador int PRIMARY KEY,
+	cpf_pesquisador bigint PRIMARY KEY,
 	FOREIGN KEY (cpf_pesquisador) REFERENCES usuario(cpf_usuario)
 )
 
 CREATE TABLE memorias(
 tipo_memoria varchar(100) NOT NULL,
 link_memoria varchar(100) NOT NULL,
-cpf int ,
+cpf bigint,
 	FOREIGN KEY (cpf) REFERENCES pesquisador(cpf_pesquisador)
 ON DELETE SET NULL
 )
 
-
 CREATE TABLE relatorio(
 link_relatorio varchar(100) NOT NULL,
-mes_relatorio smallint,
-ano_relatorio smallint,	
-cpf smallint ,
+data_relatorio DATE NOT NULL,	
+cpf bigint ,
 	FOREIGN KEY (cpf) REFERENCES pesquisador(cpf_pesquisador)
 ON DELETE SET NULL
 )
@@ -36,18 +34,16 @@ CREATE TABLE nucleo(
 	nome_nucleo varchar(100) PRIMARY KEY
 )
 
-
 CREATE TABLE linhas_pesquisa(
 	nome_nucleo varchar(100),
-	numero_linha smallint PRIMARY KEY,
+	numero_linha int PRIMARY KEY,
 	decricao_curta varchar(100) NOT NULL,
 	descricao_longa varchar(100) NOT NULL,
 	FOREIGN KEY (nome_nucleo) REFERENCES nucleo(nome_nucleo)
 )
 
-
 CREATE TABLE pertence(
-	cpf_usuario smallint,
+	cpf_usuario bigint,
 	numero_linha smallint,
 	e_principal BOOLEAN NOT NULL,
 	e_lider_pesquisa BOOLEAN NOT NULL,
@@ -56,18 +52,18 @@ CREATE TABLE pertence(
 )
 
 -------------------------
-
-DROP TABLE nucleo --REMOVER TABELA
-
+ALTER TABLE PERTENCE ALTER COLUMN cpf_usuario BIGINT-- ALTERA COLUNA
+DROP TABLE relatorio --REMOVER TABELA
+TRUNCATE TABLE relatorio --LIMPA TABELA
 
 ----Insere nas tabelas-----
-INSERT INTO pertence VALUES (2,1,TRUE,TRUE)
-INSERT INTO linhas_pesquisa VALUES ('Nucleo 2',4,'Linha numero tres','Essa eh a terceira melhor linha')
+INSERT INTO pertence VALUES (13626640736,3,TRUE,TRUE)
+INSERT INTO linhas_pesquisa VALUES ('Nucleo 2',3,'Linha numero tres','Essa eh a melhor terceira linha')
 INSERT INTO nucleo VALUES('Nucleo de teste 3','Nucleo 3')
-INSERT INTO relatorio VALUES('relatorios3.com', 07,2018,1)
-INSERT INTO pesquisador VALUES('Extensao', 'meulink.com',1)
-INSERT INTO usuario VALUES('yasmin GATONA', 'yasmingatona@gmail.com','06-19-2000','Pesquisador',2)
-INSERT INTO memorias VALUES('Foto','teste.com',1)
+INSERT INTO relatorio VALUES('relatorios3.com','05-07-2020',180947216676)
+INSERT INTO pesquisador VALUES('Extensao', 'gabriel.com',180947216676)
+INSERT INTO usuario VALUES('gabriel',NULL ,'06-19-2000','Pesquisador',180947216676)
+INSERT INTO memorias VALUES('Video','video..com',13626640736)
 
 ----Mostra as tabelas----
 SELECT * FROM pertence
@@ -84,21 +80,59 @@ SELECT
 	usuario.cpf_usuario, 
 	memorias.tipo_memoria,
 	memorias.link_memoria,
-	relatorio.mes_relatorio,
-	relatorio.cpf
+	relatorio.data_relatorio
 FROM usuario
 INNER JOIN memorias 
 	ON usuario.cpf_usuario = memorias.cpf
 INNER JOIN relatorio 
 	ON usuario.cpf_usuario = relatorio.cpf
-	Where usuario.cpf_usuario = 1;
+	Where usuario.cpf_usuario = 13626640736;
 
 
+------  Total de linhas de pesquisa por pesquisador  --------
 
-------Total de linhas de pesquisa por pesquisador--------
-SELECT count(*) FROM pertence
-WHERE pertence.cpf_usuario = 1
+SELECT usuario.nome_usuario,usuario.cpf_usuario, count(pertence.numero_linha) as numero_linhas
+FROM pertence 
+INNER JOIN usuario
+	ON usuario.cpf_usuario = pertence.cpf_usuario
+GROUP BY usuario.cpf_usuario
+
+
+-----  Total de pesquisadores por Nucleo  ----------
+SELECT nucleo.nome_nucleo,	
+	   count(pertence.cpf_usuario) as numero_pesquisadores
+FROM nucleo
+INNER JOIN linhas_pesquisa 
+	ON nucleo.nome_nucleo = linhas_pesquisa.nome_nucleo
+INNER JOIN pertence 
+	ON pertence.numero_linha = linhas_pesquisa.numero_linha
+GROUP BY nucleo.nome_nucleo
+
+--Usuarios que não colocaram email----
+SELECT usuario.nome_usuario as usuario_sem_email
+FROM usuario
+WHERE usuario.email IS NULL;
+
+--Media cada tipo de memória por cada pesquisador --- NÃO FINALIZADA
+
+SELECT usuario.nome_usuario, MAX(memorias.tipo_memoria) AS resultado_media
+FROM usuario
+INNER JOIN memorias
+	ON memorias.cpf = usuario.cpf_usuario
+GROUP BY usuario.cpf_usuario
+
+
+---Verificar quem não entregou o relatório em um período de tempo--------			
 	
-	
-	
-
+	SELECT usuario.nome_usuario,
+	  t.data_relatorio, 
+	  pesquisador.cpf_pesquisador
+FROM usuario
+	INNER JOIN pesquisador --somente os pesquisadores possuem relatorios
+		ON usuario.cpf_usuario = pesquisador.cpf_pesquisador
+	LEFT JOIN (SELECT * FROM relatorio
+			   WHERE relatorio.data_relatorio BETWEEN '01-01-2019' and '01-01-2020' ) as t 	
+			   ON t.cpf = usuario.cpf_usuario	
+    WHERE t.data_relatorio is NULL
+		
+		
