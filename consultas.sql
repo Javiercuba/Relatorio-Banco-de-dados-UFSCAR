@@ -39,13 +39,13 @@ FROM usuario
 WHERE usuario.email IS NULL;
 
 --Media cada tipo de memória por cada pesquisador --- NÃO FINALIZADA
-
-SELECT usuario.nome_usuario, MAX(memorias.tipo_memoria) AS resultado_media
-FROM usuario
-INNER JOIN memorias
-	ON memorias.cpf = usuario.cpf_usuario
-GROUP BY usuario.cpf_usuario
-
+SELECT 
+	memoria, avg(teste) as media_video
+	FROM(
+		SELECT memorias.tipo_memoria as memoria, count(*) as teste  FROM  memorias
+			GROUP BY memorias.cpf,memorias.tipo_memoria
+	)memorias	
+GROUP BY memorias.memoria
 
 ---Verificar quem não entregou o relatório em um período de tempo--------			
 	
@@ -59,5 +59,4 @@ FROM usuario
 			   WHERE relatorio.data_relatorio BETWEEN '01-01-2019' and '01-01-2020' ) as t 	
 			   ON t.cpf = usuario.cpf_usuario	
     WHERE t.data_relatorio is NULL
-		
 		

@@ -3,7 +3,7 @@ CREATE TABLE usuario(
 	email varchar(100),
 	data_nasc date,
 	tipo varchar(100),
-	cpf_usuario bigint PRIMARY KEY --ERRO QUANDO TENTO O CPF TODO
+	cpf_usuario bigint PRIMARY KEY 
 )
 
 CREATE TABLE pesquisador(
@@ -25,6 +25,8 @@ CREATE TABLE relatorio(
 link_relatorio varchar(100) NOT NULL,
 data_relatorio DATE NOT NULL,	
 cpf bigint ,
+mes_relatorio smallint,
+ano_relatorio smallint,	
 	FOREIGN KEY (cpf) REFERENCES pesquisador(cpf_pesquisador)
 ON DELETE SET NULL
 )
@@ -50,3 +52,26 @@ CREATE TABLE pertence(
 	FOREIGN KEY (cpf_usuario) REFERENCES pesquisador(cpf_pesquisador),
 	FOREIGN KEY (numero_linha) REFERENCES linhas_pesquisa(numero_linha)
 )
+
+
+--------------TRIGGER---------------------		
+CREATE OR REPLACE FUNCTION Function_ExtractDate()
+RETURNS trigger AS $$
+BEGIN
+IF (TG_OP = 'UPDATE' OR TG_OP = 'INSERT') THEN
+ IF (NEW.data_relatorio IS NOT NULL) THEN
+	
+	NEW.ano_relatorio = extract(YEAR FROM NEW.data_relatorio);
+    NEW.mes_relatorio = extract(MONTH FROM NEW.data_relatorio); 
+	
+ end if;
+end if;
+ 
+RETURN NEW; 
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER data_relatorio
+    BEFORE INSERT or UPDATE ON relatorio
+    FOR EACH ROW
+    EXECUTE PROCEDURE Function_ExtractDate();

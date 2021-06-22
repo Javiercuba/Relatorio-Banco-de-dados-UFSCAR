@@ -356,6 +356,49 @@ participação total. O pesquisador sempre vai ser um usuário
 e também está sendo utilizada uma tabela
 para cada tipo de entidade. 
 
+\clearpage
+\section{Modelo Físico}
 
+\begin{lstlisting}[
+    escapechar=\%,
+    language=SQL,
+    showspaces=false,
+    basicstyle=\ttfamily,
+    numbers=none,
+    numberstyle=\tiny,
+    commentstyle=\color{gray}
+ ]
+ CREATE TABLE usuario(
+	nome_usuario varchar(100) NOT NULL,
+	email varchar(100),
+	data_nasc date,
+	tipo varchar(100),
+	cpf_usuario bigint PRIMARY KEY
+)
+\end{lstlisting}
+
+O cpf\_usuario é a chave primária da tabela usuario
+e o nome\_usuario é a segunda chave, por isso a utilização
+do NOT NULL. 
+
+
+\begin{lstlisting}[
+    escapechar=\%,
+    language=SQL,
+    showspaces=false,
+    basicstyle=\ttfamily,
+    numbers=none,
+    numberstyle=\tiny,
+    commentstyle=\color{gray}
+ ]
+CREATE TABLE pesquisador(
+	tipo_bolsa varchar(100),
+	minibiografia varchar(100),
+	cpf_pesquisador bigint PRIMARY KEY,
+	FOREIGN KEY (cpf_pesquisador) REFERENCES usuario(cpf_usuario)
+)
+\end{lstlisting}
+
+O cpf\_usuario é a chave estrangeira da tabela pesquisador.
 \end{document}
 
